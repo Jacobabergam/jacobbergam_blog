@@ -1,0 +1,20 @@
+# Permalinks
+#
+permalink:           /:categories/:year/:month/:day/:title/
+
+# Setup
+title:               Jacob Bergam
+tagline:             jacobbergam.com
+description:         One place to keep track of all my interests! Hope you enjoy!
+url:                 http://JacobBergam.com
+baseurl:             ''
+paginate:            5
+
+# Plugins, Tags, Categories and Analytics  
+plugins:          [jekyll-paginate]
+
+# About/contact
+author:
+  name:              Jacob Bergam
+  url:               https://jacobbergam.com
+  email:             jabergam@gmail.com
