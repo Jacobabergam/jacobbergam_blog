@@ -116,10 +116,3 @@ Hyde has two branches, but only one is used for active development.
 Open sourced under the [MIT license](LICENSE.md).
 
 <3
-
-
-build on local machine:
-docker run --env=DEBUG=true --rm --volume="/Users/jacobbergam/Developer/jacobbergam_blog:/srv/jekyll" -it jekyll/jekyll:$JEKYLL_VERSION jekyll build
-
-run 
-docker run --name jacobbergam.com --env=DEBUG=true --rm --volume="/Users/jacobbergam/Developer/jacobbergam_blog:/srv/jekyll" -p 3000:4000 -it jekyll/jekyll:$JEKYLL_VERSION jekyll serve --watch --drafts
