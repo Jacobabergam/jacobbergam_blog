@@ -13,7 +13,6 @@ paginate:            5
 # Plugins, Tags, Categories and Analytics  
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-hydeout
 plugins:
   - jekyll-feed
   - jekyll-gist
