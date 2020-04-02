@@ -18,7 +18,7 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate  
-  - jekyll-analyitics
+  - jekyll-seo-tag
 
 # About/contact
 author:
@@ -26,9 +26,7 @@ author:
   url:               https://jacobbergam.com
   email:             jabergam@gmail.com
 
-jekyll_analytics:
-  GoogleAnalytics:          # Add, if you want to track with Google Analytics
-    id: UA-162537274-1         # Required - replace with your tracking id
-    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
+
+google_analytics:   UA-162535959-1
 
 
