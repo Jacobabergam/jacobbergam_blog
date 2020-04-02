@@ -2,19 +2,32 @@
 layout: default
 title: Home
 ---
+<div class="header">
+  <h1 class="post-title">
+    <a >
+      About Me
+    </a>
+  </h1>
+</div>
+
+<!-- {% assign about = site.pages | where: 'name','about.md' %} -->
+{% if about contains '<!--more-->' %}
+  {{ about.content | split:'<!--more-->' | first }}
+{% else %}
+  {{about}}
+{% endif %}
 
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">
       <a href="{{ post.url }}">
-        {{ post.title }}
       </a>
     </h1>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    {{ post.content }}
+        {{ post.excerpt }}
   </div>
   {% endfor %}
 </div>

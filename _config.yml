@@ -8,6 +8,7 @@ tagline:             jacobbergam.com
 description:         Laser & Optics Engineer, UC Santa Barbara 
 url:                 http://JacobBergam.com
 baseurl:             ''
+encoding:            utf-8
 paginate:            5
 
 # Plugins, Tags, Categories and Analytics  
@@ -17,9 +18,17 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate  
+  - jekyll-analyitics
 
 # About/contact
 author:
   name:              Jacob Bergam
   url:               https://jacobbergam.com
   email:             jabergam@gmail.com
+
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-162537274-1         # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
+
+

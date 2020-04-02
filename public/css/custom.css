@@ -1,0 +1,5 @@
+.Avatar {
+  display: block;
+  overflow:hidden;
+  border-radius: 50%;
+}

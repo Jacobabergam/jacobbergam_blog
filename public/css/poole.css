@@ -428,3 +428,9 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+.Avatar {
+  display: block;
+  overflow:hidden;
+  border-radius: 50%;
+}
