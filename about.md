@@ -29,6 +29,6 @@ I also have several patents pending pertaining to Lidar systems and often get to
 * Robotics 🤖
 * Data Science 📈
 * Coffee ☕️
-* Muy Thai 👊🏼
+* Muay Thai 👊🏼
 
 
