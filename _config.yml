@@ -5,7 +5,7 @@ permalink:           /:categories/:year/:month/:day/:title/
 # Setup
 title:               Jacob Bergam
 tagline:             jacobbergam.com
-description:         "Laser & Optics Engineer, \n UC Santa Barbara"
+description:         "Laser & Optic Engineer, \n UC Santa Barbara"
 url:                 http://JacobBergam.com
 baseurl:             ''
 encoding:            utf-8
