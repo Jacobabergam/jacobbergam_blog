@@ -101,7 +101,11 @@ Hyde's page orientation can be reversed with a single class.
 Hyde has two branches, but only one is used for active development.
 
 - `master` for development.  **All pull requests should be submitted against `master`.**
-- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+- `gh-pages` for our hosted site, which includes our analytics tracking code. 
+
+**To test on local host**
+Use:
+docker run --rm --label=jekyll --volume="$(pwd)":/srv/jekyll  -it -p 4000:4000 jekyll/jekyll:pages jekyll serve
 
 
 ## Author
@@ -116,3 +120,4 @@ Hyde has two branches, but only one is used for active development.
 Open sourced under the [MIT license](LICENSE.md).
 
 <3
+
