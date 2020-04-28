@@ -1,0 +1,17 @@
+github:
+  id: 'jacobabergam'
+  href: 'https://github.com/'
+  title: 'GitHub'
+  fa-icon: 'fa-github-square'
+
+linkedin:
+  id: 'in/jacob-bergam'
+  href: 'https://linkedin.com/'
+  title: 'Linkedin'
+  fa-icon: 'fa-linkedin-square'
+
+twitter:
+  id: 'JacobBergam'
+  href: 'https://www.twitter.com/'
+  title: 'Twitter'
+  fa-icon: 'fa-twitter-square'

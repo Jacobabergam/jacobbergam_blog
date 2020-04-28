@@ -1,5 +1,17 @@
 .Avatar {
   display: block;
+  margin-left: auto;  
+  margin-right: auto;
   overflow:hidden;
   border-radius: 50%;
+  max-width: 90%;
+  height: auto;
+}
+
+#social-media {
+  margin-top: 0.5rem;
+}
+
+.fa {
+  margin-right: 0.2rem;
 }
