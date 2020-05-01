@@ -4,7 +4,7 @@
   margin-right: auto;
   overflow:hidden;
   border-radius: 50%;
-  max-width: 90%;
+  max-width: 70%;
   height: auto;
 }
 
@@ -14,4 +14,8 @@
 
 .fa {
   margin-right: 0.2rem;
+}
+
+.sidebar-tag {
+    font-size: 0.6667rem;
 }
