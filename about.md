@@ -5,7 +5,7 @@ order: 1
 ---
 
 
-Hello! I'm a Laser & Optical Engineer interested in building useful products in the automotive industry. I have a passion for all things technology! I graduated from 🎓 UCSB in 2017 with a BS in Physics ⚛️. I'm currently living in Santa Barbara 🏄 with my wife!
+Hello! I'm a Laser & Optical Engineer interested in building useful products in the automotive industry. I have a passion for all things technology! I graduated from 🎓 UCSB  with a BS in Physics ⚛️. I'm currently living in Santa Barbara 🏄 with my wife!
 
 <!--more-->
 
