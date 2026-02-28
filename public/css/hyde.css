@@ -8,10 +8,25 @@
   text-align: center;
   padding: 2.5rem 1.5rem;
   color: #55524B;
-  background-color: #EFECE4; /* Warm light beige/stone */
-  border-right: 1px solid #E2DDD5;
+  background-color: rgba(239, 236, 228, 0.65); /* Warm light beige/stone, translucent */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(226, 221, 213, 0.6);
   height: 100vh;
   box-shadow: inset -5px 0 15px rgba(0,0,0,0.02);
+
+  /* Grid pattern and dynamic mouse glow */
+  background-image: 
+    radial-gradient(
+      circle 200px at var(--mouse-x, -500px) var(--mouse-y, -500px),
+      rgba(245, 140, 60, 0.12), /* Faint orange glow, very subtle */
+      transparent 80%
+    ),
+    linear-gradient(rgba(226,221,213,0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(226,221,213,0.25) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  background-position: 0 0, 0 0, 0 0;
+  background-repeat: no-repeat, repeat, repeat;
 }
 
 @media (min-width: 48em) {
@@ -130,12 +145,11 @@ a.sidebar-nav-item:focus {
 .Avatar {
   display: block;
   overflow: hidden;
-  border-radius: 120px 120px 12px 12px; /* Arch shape */
+  border-radius: 120px 120px 24px 24px; /* Arch shape, softer bottom corners */
   max-width: 140px;
   height: 180px;
   object-fit: cover;
   margin-bottom: 1.5rem;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   border: 4px solid #F9F8F6;
-  border-bottom-width: 8px;
 }

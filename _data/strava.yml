@@ -88,18 +88,6 @@ activities:
   max_speed_kph: 31.1
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/17400617487
-- id: 17374323626
-  name: Lower Body Supersets with Runna ✅
-  type: Workout
-  sport_type: Workout
-  start_date: '2026-02-12T03:30:14Z'
-  distance_km: 0.0
-  moving_time_minutes: 75.7
-  elapsed_time_minutes: 75.7
-  average_speed_kph: 0.0
-  max_speed_kph: 0.0
-  total_elevation_gain_m: 0.0
-  url: https://www.strava.com/activities/17374323626
 - id: 17346325681
   name: 3.25mi Easy Run
   type: Run
