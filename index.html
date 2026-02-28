@@ -62,21 +62,19 @@ title: Home
 <section class="recently-read">
   <h2>Recently Read</h2>
   <p class="section-lead">
-    Reading is one of my favorite ways to recharge.     I bounce between sci-fi and space opera,
-    faith and spirituality, parenting and psychology, narrative nonfiction, and the occasional
-    thriller or business book. I am sharing a few from my
-    <a href="https://www.goodreads.com/user/show/114910493-jacob-bergam">Goodreads</a> shelf in case
-    it helps you find your next great read.{% if site.amazon_associate_tag and site.amazon_associate_tag != "" %} Book links may go to Amazon; as an Amazon Associate I earn from qualifying purchases.{% endif %}
+    I track what I read on <a href="https://www.goodreads.com/user/show/114910493-jacob-bergam">Goodreads</a> and love sharing it here. My rule: if I think I’d like to read a book, I buy it—books have no budget. If any of these look interesting to you, consider picking one up; I’d be glad if it leads you to a great read.
   </p>
+  {% if site.amazon_associate_tag and site.amazon_associate_tag != "" %}
+  <p class="section-note">Book links may go to Amazon; as an Amazon Associate I earn from qualifying purchases.</p>
+  {% endif %}
   {% if site.data.recently_read and site.data.recently_read.books %}
+    {% assign book_placeholder = '/images/placeholder-book.svg' | relative_url %}
     <div class="recently-read-grid recently-read-grid--compact">
       {% for book in site.data.recently_read.books limit: 6 %}
-        {% if book.cover_url %}
-          {% capture book_href %}{% include book_link_url.html book=book %}{% endcapture %}
-          <a href="{{ book_href | strip }}" class="recently-read-grid__item" target="_blank" rel="noopener noreferrer" title="{{ book.title }}">
-            <img src="{{ book.cover_url }}" alt="" class="recently-read-grid__cover" loading="lazy" />
-          </a>
-        {% endif %}
+        {% capture book_href %}{% include book_link_url.html book=book %}{% endcapture %}
+        <a href="{{ book_href | strip }}" class="recently-read-grid__item" target="_blank" rel="noopener noreferrer" title="{{ book.title | escape }}">
+          <img src="{{ book.cover_url | default: book_placeholder }}" alt="" class="recently-read-grid__cover" loading="lazy" onerror="this.src='{{ book_placeholder }}';this.onerror=null;" />
+        </a>
       {% endfor %}
     </div>
     <p class="recently-read-cta">
@@ -123,7 +121,7 @@ title: Home
         </li>
         <li>
           <span class="stats-label">50K Ultra</span>
-          {% assign val = site.data.strava_stats.run.50k %}
+          {% assign val = site.data.strava_stats.run['50k'] %}
           {% if val.time == "???" or val == "???" %}
             <span class="stats-value stats-value--dim">???</span>
           {% elsif val.url and val.url != "???" %}
@@ -134,7 +132,7 @@ title: Home
         </li>
         <li>
           <span class="stats-label">50 Mile Ultra</span>
-          {% assign val = site.data.strava_stats.run.50_mile %}
+          {% assign val = site.data.strava_stats.run['50_mile'] %}
           {% if val.time == "???" or val == "???" %}
             <span class="stats-value stats-value--dim">???</span>
           {% elsif val.url and val.url != "???" %}
@@ -153,7 +151,7 @@ title: Home
       <ul class="stats-list stats-list--single">
         <li>
           <span class="stats-label">50 Mile Ride</span>
-          {% assign val = site.data.strava_stats.bike.50_mile %}
+          {% assign val = site.data.strava_stats.bike['50_mile'] %}
           {% if val.time == "???" or val == "???" %}
             <span class="stats-value stats-value--dim">???</span>
           {% elsif val.url and val.url != "???" %}
@@ -164,7 +162,7 @@ title: Home
         </li>
         <li>
           <span class="stats-label">100 Mile Ride</span>
-          {% assign val = site.data.strava_stats.bike.100_mile %}
+          {% assign val = site.data.strava_stats.bike['100_mile'] %}
           {% if val.time == "???" or val == "???" %}
             <span class="stats-value stats-value--dim">???</span>
           {% elsif val.url and val.url != "???" %}
@@ -182,9 +180,9 @@ title: Home
     <div class="activity-grid">
       {% for activity in site.data.strava.activities limit: 6 %}
         <article class="activity-card">
-          {% if activity.map_points and activity.map_points.size > 0 %}
-            <div class="activity-card__map-container activity-card__map-container--interactive" 
-                 data-points="{{ activity.map_points | jsonify | escape }}"
+          {% if activity.polyline %}
+            <div class="activity-card__map-container activity-card__map-container--interactive"
+                 data-polyline="{{ activity.polyline | escape }}"
                  data-url="{{ activity.url }}"
                  aria-label="View on Strava">
             </div>
@@ -259,26 +257,40 @@ title: Home
     </div>
 
     <script>
+      function decodePolyline(encoded) {
+        var points = [];
+        var index = 0, lat = 0, lng = 0;
+        while (index < encoded.length) {
+          var b, shift = 0, result = 0;
+          do { b = encoded.charCodeAt(index++) - 63; result |= (b & 0x1f) << shift; shift += 5; } while (b >= 0x20);
+          lat += ((result & 1) ? ~(result >> 1) : (result >> 1));
+          shift = 0; result = 0;
+          do { b = encoded.charCodeAt(index++) - 63; result |= (b & 0x1f) << shift; shift += 5; } while (b >= 0x20);
+          lng += ((result & 1) ? ~(result >> 1) : (result >> 1));
+          points.push([lat / 1e5, lng / 1e5]);
+        }
+        return points;
+      }
+
       document.addEventListener("DOMContentLoaded", function() {
         var mapContainers = document.querySelectorAll('.activity-card__map-container--interactive');
         if (mapContainers.length > 0) {
-          // Load Leaflet CSS
           var link = document.createElement('link');
           link.rel = 'stylesheet';
           link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
           document.head.appendChild(link);
 
-          // Load Leaflet JS
           var script = document.createElement('script');
           script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
           script.onload = function() {
             mapContainers.forEach(function(container, index) {
-              var pointsRaw = container.getAttribute('data-points');
-              if (!pointsRaw) return;
-              var points = JSON.parse(pointsRaw);
-              
+              var encoded = container.getAttribute('data-polyline');
+              if (!encoded) return;
+              var points = decodePolyline(encoded);
+              if (points.length === 0) return;
+
               container.id = 'activity-map-' + index;
-              
+
               var map = L.map(container.id, {
                 zoomControl: false,
                 dragging: false,
@@ -290,8 +302,7 @@ title: Home
                 attributionControl: false
               });
 
-              // Soft neutral map theme
-              L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+              L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 maxZoom: 19
               }).addTo(map);
 
@@ -303,8 +314,8 @@ title: Home
                 lineJoin: 'round'
               }).addTo(map);
 
-              map.fitBounds(polyline.getBounds(), { padding: [20, 20] });
-              
+              map.fitBounds(polyline.getBounds(), { paddingTopLeft: [20, 20], paddingBottomRight: [20, 155] });
+
               var url = container.getAttribute('data-url');
               if (url) {
                 container.style.cursor = 'pointer';
