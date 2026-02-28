@@ -1,7 +1,17 @@
 <div class="sidebar">
+  <!-- Mobile only: avatar scrolls away, then toolbar sticks -->
+  <div class="sidebar-mobile-hero">
+    <div class="avatar-reveal" id="avatar-reveal-mobile">
+      <img src="{{ '/' | relative_url }}public/profile_picture.jpeg" alt="Avatar" class="Avatar sidebar-mobile-hero__avatar" />
+      <img src="{{ '/' | relative_url }}public/images/profile_painted.png" alt="" class="avatar-reveal__overlay" aria-hidden="true" />
+    </div>
+  </div>
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <img src="{{ '/' | relative_url }}public/profile_picture.jpeg" alt="Avatar" class="Avatar" />
+      <div class="avatar-reveal" id="avatar-reveal-desktop">
+        <img src="{{ '/' | relative_url }}public/profile_picture.jpeg" alt="Avatar" class="Avatar sidebar-about__avatar" />
+        <img src="{{ '/' | relative_url }}public/images/profile_painted.png" alt="" class="avatar-reveal__overlay" aria-hidden="true" />
+      </div>
       <h1>
         <a href="{{ '/' | relative_url  }}">
           
@@ -11,40 +21,34 @@
       <p class="lead">{{ site.description }}</p>
     </div>
 
+    {% if site.data.social-media %}
+    <div class="sidebar-social" id="social-media">
+      {% assign sm = site.data.social-media %}
+      {% for entry in sm %}
+      {% assign key = entry | first %}
+      {% if sm[key].id %}
+      <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}"><i class="fa {{ sm[key].fa-icon }} fa-2x"></i></a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == '/' %} active{% endif %}" href="{{ '/' | relative_url  }}">Home</a>
 
       {% comment %}
         The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
+        `layout: page`, `layout: reading`, or `layout: activities`. Sorted by front-matter order.
       {% endcomment %}
 
-      {% assign pages_list = site.pages %}
+      {% assign pages_list = site.pages | sort: "order" %}
       {% for node in pages_list %}
         {% if node.title != null %}
-          {% if node.layout == "page" or node.layout == "reading" %}
+          {% if node.layout == "page" or node.layout == "reading" or node.layout == "activities" %}
             <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
           {% endif %}
         {% endif %}
       {% endfor %}
-
-      <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a> -->
-      <!-- <a class="sidebar-nav-item" href="https://github.com/Jacobabergam">GitHub</a> -->
-      <!-- <a class="sidebar-nav-item" href="https://www.linkedin.com/in/jacob-bergam-17a41ba5/">Linkedin</a> -->
-      <!-- <a class="sidebar-nav-item" href="hhttps://twitter.com/JacobBergam">Twitter</a> -->
-
-      {% if site.data.social-media %}
-      <div class="sidebar-nav-item" id="social-media">
-        {% assign sm = site.data.social-media %}
-        {% for entry in sm %}
-        {% assign key = entry | first %}
-        {% if sm[key].id %}
-        <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}"><i class="fa {{ sm[key].fa-icon }} fa-2x"></i></a>
-        {% endif %}
-        {% endfor %}
-      </div>
-      {% endif %}
-      <!-- <span class="sidebar-nav-item">Currently{{ site.version }}</span> -->
     </nav>
 
     <p class="sidebar-tag"> &copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
@@ -57,11 +61,160 @@
     if (!sidebar) return;
 
     document.addEventListener('mousemove', (e) => {
-      const rect = sidebar.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      sidebar.style.setProperty('--mouse-x', `${x}px`);
-      sidebar.style.setProperty('--mouse-y', `${y}px`);
+      const xPercent = (e.clientX / window.innerWidth - 0.5) * 15;
+      const yPercent = (e.clientY / window.innerHeight - 0.5) * 15;
+      sidebar.style.setProperty('--shift-x', `${xPercent}%`);
+      sidebar.style.setProperty('--shift-y', `${yPercent}%`);
+    });
+
+    document.querySelectorAll('.avatar-reveal').forEach(container => {
+      const overlayImg = container.querySelector('.avatar-reveal__overlay');
+      if (!overlayImg) return;
+      overlayImg.style.display = 'none';
+
+      const BRUSH = 30;
+      const FADE_MS = 500;
+      const SCALE = 2;
+
+      const canvas = document.createElement('canvas');
+      canvas.className = 'avatar-reveal__canvas';
+      container.appendChild(canvas);
+
+      const ctx = canvas.getContext('2d');
+      const paintedImg = new Image();
+      paintedImg.crossOrigin = 'anonymous';
+      paintedImg.src = overlayImg.src;
+
+      const brushCanvas = document.createElement('canvas');
+      const brushCtx = brushCanvas.getContext('2d');
+      const brushDiam = BRUSH * 2;
+      brushCanvas.width = brushDiam * SCALE;
+      brushCanvas.height = brushDiam * SCALE;
+
+      let lastX = null, lastY = null;
+      let pendingStrokes = [];
+      let lastStrokeTime = 0;
+      let animating = false;
+      let lastFrame = 0;
+
+      function sizeCanvas() {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        canvas.width = w * SCALE;
+        canvas.height = h * SCALE;
+      }
+
+      paintedImg.onload = sizeCanvas;
+      window.addEventListener('resize', () => {
+        sizeCanvas();
+        lastX = lastY = null;
+      });
+
+      function coverParams() {
+        const cw = container.clientWidth;
+        const ch = container.clientHeight;
+        const iw = paintedImg.naturalWidth;
+        const ih = paintedImg.naturalHeight;
+        const scale = Math.max(cw / iw, ch / ih);
+        const sw = cw / scale;
+        const sh = ch / scale;
+        return { sx: (iw - sw) / 2, sy: (ih - sh) / 2, sw, sh, cw, ch };
+      }
+
+      function stamp(x, y) {
+        if (!paintedImg.complete) return;
+        const { sx, sy, sw, sh, cw, ch } = coverParams();
+
+        brushCtx.clearRect(0, 0, brushCanvas.width, brushCanvas.height);
+
+        brushCtx.save();
+        brushCtx.scale(SCALE, SCALE);
+        brushCtx.drawImage(paintedImg, sx, sy, sw, sh, -x + BRUSH, -y + BRUSH, cw, ch);
+        brushCtx.restore();
+
+        brushCtx.globalCompositeOperation = 'destination-in';
+        const c = brushDiam * SCALE / 2;
+        const grad = brushCtx.createRadialGradient(c, c, 0, c, c, c);
+        grad.addColorStop(0, 'rgba(0,0,0,1)');
+        grad.addColorStop(0.55, 'rgba(0,0,0,0.5)');
+        grad.addColorStop(1, 'rgba(0,0,0,0)');
+        brushCtx.fillStyle = grad;
+        brushCtx.fillRect(0, 0, brushCanvas.width, brushCanvas.height);
+        brushCtx.globalCompositeOperation = 'source-over';
+
+        ctx.drawImage(brushCanvas, (x - BRUSH) * SCALE, (y - BRUSH) * SCALE);
+      }
+
+      function loop(now) {
+        const dt = lastFrame ? now - lastFrame : 16;
+        lastFrame = now;
+
+        const fadeAmount = Math.min(dt / FADE_MS, 1);
+        ctx.save();
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.fillStyle = `rgba(0,0,0,${fadeAmount})`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.restore();
+
+        for (const [x, y] of pendingStrokes) {
+          stamp(x, y);
+        }
+        pendingStrokes.length = 0;
+
+        if (now - lastStrokeTime < FADE_MS + 100) {
+          requestAnimationFrame(loop);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          animating = false;
+        }
+      }
+
+      function ensureAnimating() {
+        if (!animating) {
+          animating = true;
+          lastFrame = 0;
+          requestAnimationFrame(loop);
+        }
+      }
+
+      function queueStroke(x, y) {
+        if (lastX !== null) {
+          const dx = x - lastX;
+          const dy = y - lastY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const step = Math.max(BRUSH * 0.25, 2);
+          const steps = Math.ceil(dist / step);
+          for (let i = 1; i <= steps; i++) {
+            const t = i / steps;
+            pendingStrokes.push([lastX + dx * t, lastY + dy * t]);
+          }
+        } else {
+          pendingStrokes.push([x, y]);
+        }
+        lastX = x;
+        lastY = y;
+        lastStrokeTime = performance.now();
+        ensureAnimating();
+      }
+
+      container.addEventListener('mouseenter', (e) => {
+        const rect = container.getBoundingClientRect();
+        lastX = null;
+        queueStroke(e.clientX - rect.left, e.clientY - rect.top);
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        queueStroke(e.clientX - rect.left, e.clientY - rect.top);
+      });
+
+      container.addEventListener('mouseleave', () => {
+        lastX = lastY = null;
+      });
     });
   });
 </script>

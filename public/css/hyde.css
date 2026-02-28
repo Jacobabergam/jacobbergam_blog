@@ -12,21 +12,130 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-right: 1px solid rgba(226, 221, 213, 0.6);
-  height: 100vh;
   box-shadow: inset -5px 0 15px rgba(0,0,0,0.02);
 
-  /* Grid pattern and dynamic mouse glow */
+  /* Grid pattern and subtle color shift matching strava cards */
   background-image: 
-    radial-gradient(
-      circle 200px at var(--mouse-x, -500px) var(--mouse-y, -500px),
-      rgba(245, 140, 60, 0.12), /* Faint orange glow, very subtle */
-      transparent 80%
-    ),
-    linear-gradient(rgba(226,221,213,0.25) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(226,221,213,0.25) 1px, transparent 1px);
-  background-size: 100% 100%, 20px 20px, 20px 20px;
-  background-position: 0 0, 0 0, 0 0;
-  background-repeat: no-repeat, repeat, repeat;
+    radial-gradient(circle at calc(15% + var(--shift-x, 0%)) calc(25% + var(--shift-y, 0%)), rgba(210, 225, 205, 0.5) 0%, transparent 55%),
+    radial-gradient(circle at calc(75% - var(--shift-x, 0%)) calc(65% - var(--shift-y, 0%)), rgba(200, 220, 230, 0.5) 0%, transparent 65%),
+    radial-gradient(circle at calc(40% + calc(var(--shift-x, 0%) * 0.5)) calc(80% + calc(var(--shift-y, 0%) * 0.5)), rgba(215, 225, 210, 0.5) 0%, transparent 50%),
+    linear-gradient(rgba(226,221,213,0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(226,221,213,0.3) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+  background-position: center, center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
+}
+
+/* Mobile: photo at top scrolls away, then name+nav bar sticks to top */
+@media (max-width: 47.9375em) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    border-right: none;
+    border-bottom: none;
+    text-align: center;
+  }
+
+  /* Hero block: avatar only, scrolls up and off screen */
+  .sidebar-mobile-hero {
+    display: block;
+    padding: 1.5rem 1rem 0.5rem;
+    background: inherit;
+  }
+
+  .sidebar-mobile-hero__avatar {
+    display: block;
+    margin: 0 auto 0.5rem;
+    max-width: 120px;
+    height: 155px;
+    border-radius: 80px 80px 16px 16px;
+  }
+
+  /* Toolbar: sticks to top after scroll; column layout: name → icons → nav */
+  .sidebar-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(226, 221, 213, 0.6);
+    background: inherit;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .sidebar-about {
+    margin: 0;
+    order: 1;
+  }
+
+  /* Hide about avatar on mobile (hero shows one); hide whole avatar-reveal so no blank frame + hover */
+  .sidebar-about .avatar-reveal,
+  .sidebar-about .Avatar,
+  .sidebar-about .lead {
+    display: none;
+  }
+
+  .sidebar-about h1 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .sidebar-social {
+    order: 2;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem 0.75rem;
+    margin: 0;
+    order: 3;
+  }
+
+  .sidebar-nav-item {
+    display: inline-block;
+    line-height: 1.4;
+    font-size: 0.95rem;
+  }
+
+  a.sidebar-nav-item:hover,
+  a.sidebar-nav-item:focus {
+    transform: none;
+  }
+
+  #social-media,
+  .sidebar-social {
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  #social-media .fa,
+  .sidebar-social .fa {
+    font-size: 1.25rem;
+  }
+
+  .sidebar-tag {
+    display: none;
+  }
+}
+
+/* Desktop: hide mobile hero, show avatar in about */
+@media (min-width: 48em) {
+  .sidebar-mobile-hero {
+    display: none;
+  }
 }
 
 @media (min-width: 48em) {
@@ -97,7 +206,18 @@ a.sidebar-nav-item:focus {
   padding-bottom: 4rem;
 }
 
+/* Mobile: header is in flow (hero + sticky bar), normal top padding */
+@media (max-width: 47.9375em) {
+  .content {
+    padding-top: 2rem;
+  }
+}
+
 @media (min-width: 48em) {
+  .sidebar {
+    height: 100vh;
+  }
+
   .content {
     max-width: 44rem;
     margin-left: 22rem;
@@ -145,9 +265,9 @@ a.sidebar-nav-item:focus {
 .Avatar {
   display: block;
   overflow: hidden;
-  border-radius: 120px 120px 24px 24px; /* Arch shape, softer bottom corners */
-  max-width: 140px;
-  height: 180px;
+  border-radius: 120px 120px 24px 24px;
+  max-width: 170px;
+  height: 215px;
   object-fit: cover;
   margin-bottom: 1.5rem;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);

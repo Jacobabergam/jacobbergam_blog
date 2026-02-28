@@ -1,12 +1,10 @@
-# Base stats file to store PRs over time. 
-# This file gets updated automatically by scripts/fetch_strava.rb when a faster effort is found.
-
+---
 run:
   half_marathon:
-    time: "1:45:00"
+    time: '1:45:00'
     url: "???"
   marathon:
-    time: "3:55:00"
+    time: '3:55:00'
     url: "???"
   50k:
     time: "???"
@@ -14,11 +12,10 @@ run:
   50_mile:
     time: "???"
     url: "???"
-
 bike:
   50_mile:
-    time: "5:23:46"
-    url: "https://www.strava.com/activities/1933118522/overview"
+    time: '5:23:46'
+    url: https://www.strava.com/activities/1933118522/overview
   100_mile:
     time: "???"
     url: "???"

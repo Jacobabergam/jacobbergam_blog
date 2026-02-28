@@ -86,3 +86,6 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Environment secrets
+.env

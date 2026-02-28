@@ -219,7 +219,7 @@ def normalize_activity(activity)
     "location_country" => activity["location_country"],
     "url" => id ? "https://www.strava.com/activities/#{id}" : nil,
     "svg_map" => svg_map,
-    "map_points" => decode_polyline(polyline)
+    "polyline" => (polyline && !polyline.empty?) ? polyline : nil
   }.compact
 end
 

@@ -1,0 +1,44 @@
+name: Update Goodreads Read List
+
+on:
+  schedule:
+    # Run at 3 AM UTC every day (after Strava)
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  fetch_and_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Fetch Goodreads Read List
+        env:
+          # Optional: set GOODREADS_USER_ID in repo secrets to override script default
+          GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
+          # Optional: set GOODREADS_API_KEY in repo secrets if RSS requires it
+          GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
+        run: |
+          ruby scripts/fetch_goodreads.rb
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet _data/recently_read.yml || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/recently_read.yml
+          git commit -m "chore: update recently read books from Goodreads"
+          git push

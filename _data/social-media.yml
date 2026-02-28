@@ -15,3 +15,9 @@ twitter:
   href: 'https://x.com/'
   title: 'X'
   fa-icon: 'fa-brands fa-x-twitter'
+
+strava:
+  id: 'athletes/17004937'
+  href: 'https://www.strava.com/'
+  title: 'Strava'
+  fa-icon: 'fa-brands fa-strava'

@@ -3,12 +3,57 @@
   display: block;
   margin-left: 0;  
   overflow: hidden;
-  border-radius: 120px 120px 24px 24px; /* Arch shape, softer bottom corners */
-  max-width: 140px;
-  height: 180px;
+  border-radius: 120px 120px 24px 24px;
+  max-width: 170px;
+  height: 215px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   border: 4px solid #fff;
+}
+
+/* Avatar paint-reveal container */
+.avatar-reveal {
+  position: relative;
+  display: inline-block;
+  border-radius: 120px 120px 24px 24px;
+  overflow: hidden;
+  cursor: crosshair;
+  width: 170px;
+  height: 215px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border: 4px solid #fff;
+}
+
+@media (max-width: 48em) {
+  .avatar-reveal {
+    width: 120px;
+    height: 155px;
+    border-radius: 80px 80px 16px 16px;
+    margin: 0 auto;
+  }
+}
+
+.avatar-reveal .Avatar {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
+}
+
+.avatar-reveal__overlay {
+  display: none;
+}
+
+.avatar-reveal__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
 }
 
 @media (max-width: 48em) {
@@ -198,13 +243,20 @@
   border-color: #8C6A46;
 }
 
+.section-note {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  color: #888;
+  max-width: 38rem;
+}
+
 .recently-read-cta {
   margin: 1.5rem 0 0;
 }
 
 .recently-read-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   gap: 0.5rem;
   row-gap: 0.5rem;
   margin: 0 0 1rem;
@@ -212,14 +264,7 @@
 }
 
 .recently-read-grid--compact {
-  grid-template-columns: repeat(6, 1fr);
   max-width: 28rem;
-}
-
-@media (max-width: 30rem) {
-  .recently-read-grid--compact {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .recently-read-grid__item {
@@ -233,6 +278,7 @@
   border-radius: 2px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  aspect-ratio: 2 / 3;
 }
 
 .recently-read-grid__item:hover {
@@ -244,11 +290,12 @@
 .recently-read-grid__cover {
   display: block;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   aspect-ratio: 2 / 3;
   object-fit: cover;
-  border-radius: 0;
+  border-radius: 4px;
   vertical-align: bottom;
 }
 
@@ -257,6 +304,13 @@
   max-width: none;
   padding-left: 0;
   padding-right: 0;
+}
+
+@media (max-width: 47.9375em) {
+  .content--reading.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 @media (min-width: 48em) {
@@ -291,23 +345,40 @@
 
 .reading-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  row-gap: 0;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 1.5rem 1rem;
   margin-top: 1rem;
   line-height: 0;
+  align-items: start;
 }
 
 @media (min-width: 48em) {
   .reading-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 2rem 1.5rem;
   }
 }
 
 @media (min-width: 64em) {
   .reading-grid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 2.5rem 2rem;
   }
+}
+
+.reading-grid__year-break {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+  margin-bottom: -0.5rem;
+  border-bottom: 1px solid #E2DDD5;
+  padding-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.reading-grid__year-break h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #1A1A18;
 }
 
 .reading-grid__item {
@@ -318,6 +389,7 @@
   transition: transform 0.3s ease, filter 0.3s ease;
   position: relative;
   z-index: 0;
+  aspect-ratio: 2 / 3;
 }
 
 .reading-grid__item:hover {
@@ -333,12 +405,14 @@
 .reading-grid__cover {
   display: block;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   aspect-ratio: 2 / 3;
   object-fit: cover;
-  border-radius: 0;
+  border-radius: 4px;
   vertical-align: bottom;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 /* Strava cards */
@@ -429,6 +503,12 @@
   font-weight: 400;
 }
 
+.activities-list-heading {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  color: #1A1A18;
+}
+
 .activity-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -437,25 +517,28 @@
 
 .activity-card {
   position: relative;
-  border: 1px solid #E2DDD5;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
   background: #F4F1EA;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  min-height: 260px;
+  min-height: 280px;
   overflow: hidden;
 }
 
 .activity-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 32px rgba(140, 106, 70, 0.15), 0 4px 12px rgba(140, 106, 70, 0.08);
 }
 
 .activity-card__map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 180px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -464,26 +547,17 @@
   text-decoration: none;
   background-color: #F4F1EA;
   background-image: 
-    radial-gradient(circle at 15% 25%, rgba(210, 225, 205, 0.4) 0%, transparent 45%),
-    radial-gradient(circle at 75% 65%, rgba(200, 220, 230, 0.4) 0%, transparent 55%),
-    radial-gradient(circle at 40% 80%, rgba(215, 225, 210, 0.4) 0%, transparent 40%),
-    linear-gradient(rgba(226,221,213,0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(226,221,213,0.3) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px, 20px 20px;
-  background-position: center, center, center, center, center;
-  border-bottom: 1px solid #E2DDD5;
-  position: relative;
+    radial-gradient(circle at 15% 25%, rgba(210, 225, 205, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 75% 65%, rgba(200, 220, 230, 0.6) 0%, transparent 60%),
+    radial-gradient(circle at 40% 80%, rgba(215, 225, 210, 0.6) 0%, transparent 50%);
   z-index: 1;
 }
 
 .activity-card__map-container--empty {
-  /* Give the empty container a slightly more pronounced gradient vibe to make up for no map */
   background-image: 
-    radial-gradient(circle at 20% 30%, rgba(210, 225, 205, 0.5) 0%, transparent 60%),
-    radial-gradient(circle at 80% 70%, rgba(200, 220, 230, 0.5) 0%, transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(215, 225, 210, 0.4) 0%, transparent 70%),
-    linear-gradient(rgba(226,221,213,0.4) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(226,221,213,0.4) 1px, transparent 1px);
+    radial-gradient(circle at 20% 30%, rgba(210, 225, 205, 0.7) 0%, transparent 70%),
+    radial-gradient(circle at 80% 70%, rgba(200, 220, 230, 0.7) 0%, transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(215, 225, 210, 0.6) 0%, transparent 80%);
 }
 
 .strava-route {
@@ -491,17 +565,23 @@
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  color: #E24C22; /* Slightly softer Strava orange/red to match neutrals */
-  filter: drop-shadow(0 4px 6px rgba(226, 76, 34, 0.25));
-  opacity: 0.85;
+  color: #E24C22;
+  filter: drop-shadow(0 4px 6px rgba(226, 76, 34, 0.3));
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
 }
 
 .activity-card__content {
   position: relative;
   z-index: 2;
-  padding: 1.25rem;
-  background: #FFFFFF;
-  flex-grow: 1;
+  margin-top: auto;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  flex-grow: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
