@@ -29,4 +29,8 @@ author:
 
 google_analytics:   UA-162535959-1
 
+# Amazon Associates: set your tag to turn book links into affiliate links (e.g. yoursite-20).
+# Leave blank to keep links pointing to Goodreads only.
+amazon_associate_tag: "blogbooks21-20"
+
 

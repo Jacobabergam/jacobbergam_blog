@@ -1,0 +1,9 @@
+{% comment %}
+  Outputs the URL for a book: Amazon search with affiliate tag if set, else Goodreads link.
+  Usage: {% capture url %}{% include book_link_url.html book=book %}{% endcapture %}
+{% endcomment %}
+{% if site.amazon_associate_tag and site.amazon_associate_tag != "" %}
+{% assign q = book.title %}{% if book.author %}{% assign q = q | append: ' ' | append: book.author %}{% endif %}https://www.amazon.com/s?k={{ q | url_encode }}&tag={{ site.amazon_associate_tag }}
+{% else %}
+{{ book.link }}
+{% endif %}

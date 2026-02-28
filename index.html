@@ -62,17 +62,18 @@ title: Home
 <section class="recently-read">
   <h2>Recently Read</h2>
   <p class="section-lead">
-    Reading is one of my favorite ways to recharge. I bounce between sci-fi and space opera,
+    Reading is one of my favorite ways to recharge.     I bounce between sci-fi and space opera,
     faith and spirituality, parenting and psychology, narrative nonfiction, and the occasional
     thriller or business book. I am sharing a few from my
     <a href="https://www.goodreads.com/user/show/114910493-jacob-bergam">Goodreads</a> shelf in case
-    it helps you find your next great read.
+    it helps you find your next great read.{% if site.amazon_associate_tag and site.amazon_associate_tag != "" %} Book links may go to Amazon; as an Amazon Associate I earn from qualifying purchases.{% endif %}
   </p>
   {% if site.data.recently_read and site.data.recently_read.books %}
     <div class="recently-read-grid recently-read-grid--compact">
       {% for book in site.data.recently_read.books limit: 6 %}
         {% if book.cover_url %}
-          <a href="{{ book.link }}" class="recently-read-grid__item" target="_blank" rel="noopener noreferrer" title="{{ book.title }}">
+          {% capture book_href %}{% include book_link_url.html book=book %}{% endcapture %}
+          <a href="{{ book_href | strip }}" class="recently-read-grid__item" target="_blank" rel="noopener noreferrer" title="{{ book.title }}">
             <img src="{{ book.cover_url }}" alt="" class="recently-read-grid__cover" loading="lazy" />
           </a>
         {% endif %}
@@ -87,40 +88,236 @@ title: Home
 <section class="recent-activities">
   <h2>Recent Strava Activities</h2>
   <p class="section-lead">
-    Training snapshot from
-    <a href="https://www.strava.com">Strava</a>.
+    I love spending time outdoors, and lately, I've been focusing on staying active while soaking up the sunshine in beautiful Santa Barbara. Here is a snapshot of my recent training on
+    <a href="https://www.strava.com" target="_blank" rel="noopener noreferrer">Strava</a>.
   </p>
+
+  <div class="strava-stats-board">
+    {% if site.data.strava_stats %}
+    <div class="stats-column">
+      <div class="stats-column__header">
+        <span class="stats-column__icon">🏃</span> Run PRs
+      </div>
+      <ul class="stats-list">
+        <li>
+          <span class="stats-label">Half Marathon</span>
+          {% assign val = site.data.strava_stats.run.half_marathon %}
+          {% if val.time == "???" or val == "???" %}
+            <span class="stats-value stats-value--dim">???</span>
+          {% elsif val.url and val.url != "???" %}
+            <span class="stats-value"><a href="{{ val.url }}" target="_blank" rel="noopener noreferrer">{{ val.time }}</a></span>
+          {% else %}
+            <span class="stats-value">{{ val.time | default: val }}</span>
+          {% endif %}
+        </li>
+        <li>
+          <span class="stats-label">Marathon</span>
+          {% assign val = site.data.strava_stats.run.marathon %}
+          {% if val.time == "???" or val == "???" %}
+            <span class="stats-value stats-value--dim">???</span>
+          {% elsif val.url and val.url != "???" %}
+            <span class="stats-value"><a href="{{ val.url }}" target="_blank" rel="noopener noreferrer">{{ val.time }}</a></span>
+          {% else %}
+            <span class="stats-value">{{ val.time | default: val }}</span>
+          {% endif %}
+        </li>
+        <li>
+          <span class="stats-label">50K Ultra</span>
+          {% assign val = site.data.strava_stats.run.50k %}
+          {% if val.time == "???" or val == "???" %}
+            <span class="stats-value stats-value--dim">???</span>
+          {% elsif val.url and val.url != "???" %}
+            <span class="stats-value"><a href="{{ val.url }}" target="_blank" rel="noopener noreferrer">{{ val.time }}</a></span>
+          {% else %}
+            <span class="stats-value">{{ val.time | default: val }}</span>
+          {% endif %}
+        </li>
+        <li>
+          <span class="stats-label">50 Mile Ultra</span>
+          {% assign val = site.data.strava_stats.run.50_mile %}
+          {% if val.time == "???" or val == "???" %}
+            <span class="stats-value stats-value--dim">???</span>
+          {% elsif val.url and val.url != "???" %}
+            <span class="stats-value"><a href="{{ val.url }}" target="_blank" rel="noopener noreferrer">{{ val.time }}</a></span>
+          {% else %}
+            <span class="stats-value">{{ val.time | default: val }}</span>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+    
+    <div class="stats-column">
+      <div class="stats-column__header">
+        <span class="stats-column__icon">🚴</span> Bike Bests
+      </div>
+      <ul class="stats-list stats-list--single">
+        <li>
+          <span class="stats-label">50 Mile Ride</span>
+          {% assign val = site.data.strava_stats.bike.50_mile %}
+          {% if val.time == "???" or val == "???" %}
+            <span class="stats-value stats-value--dim">???</span>
+          {% elsif val.url and val.url != "???" %}
+            <span class="stats-value"><a href="{{ val.url }}" target="_blank" rel="noopener noreferrer">{{ val.time }}</a></span>
+          {% else %}
+            <span class="stats-value">{{ val.time | default: val }}</span>
+          {% endif %}
+        </li>
+        <li>
+          <span class="stats-label">100 Mile Ride</span>
+          {% assign val = site.data.strava_stats.bike.100_mile %}
+          {% if val.time == "???" or val == "???" %}
+            <span class="stats-value stats-value--dim">???</span>
+          {% elsif val.url and val.url != "???" %}
+            <span class="stats-value"><a href="{{ val.url }}" target="_blank" rel="noopener noreferrer">{{ val.time }}</a></span>
+          {% else %}
+            <span class="stats-value">{{ val.time | default: val }}</span>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+    {% endif %}
+  </div>
 
   {% if site.data.strava and site.data.strava.activities %}
     <div class="activity-grid">
       {% for activity in site.data.strava.activities limit: 6 %}
         <article class="activity-card">
-          {% if activity.svg_map %}
+          {% if activity.map_points and activity.map_points.size > 0 %}
+            <div class="activity-card__map-container activity-card__map-container--interactive" 
+                 data-points="{{ activity.map_points | jsonify | escape }}"
+                 data-url="{{ activity.url }}"
+                 aria-label="View on Strava">
+            </div>
+          {% elsif activity.svg_map %}
             <a href="{{ activity.url }}" class="activity-card__map-container" target="_blank" rel="noopener noreferrer" aria-label="View on Strava">
               {{ activity.svg_map }}
+            </a>
+          {% else %}
+            <a href="{{ activity.url }}" class="activity-card__map-container activity-card__map-container--empty" target="_blank" rel="noopener noreferrer" aria-label="View on Strava">
+              <!-- Empty vibey background is handled by CSS -->
             </a>
           {% endif %}
           <div class="activity-card__content">
             <h3 class="activity-card__title">
-              {% if activity.url %}
-                <a href="{{ activity.url }}" target="_blank" rel="noopener noreferrer">{{ activity.name }}</a>
-              {% else %}
-                {{ activity.name }}
-              {% endif %}
+              <span class="activity-card__title-icon">
+                {% if activity.sport_type == "Run" %}
+                  🏃
+                {% elsif activity.sport_type == "Ride" %}
+                  🚴
+                {% elsif activity.sport_type == "Workout" or activity.sport_type == "WeightTraining" %}
+                  🏋️
+                {% elsif activity.sport_type == "Swim" %}
+                  🏊
+                {% elsif activity.sport_type == "Hike" %}
+                  🥾
+                {% elsif activity.sport_type == "Walk" %}
+                  🚶
+                {% elsif activity.sport_type == "VirtualRide" %}
+                  🚴‍♂️
+                {% elsif activity.sport_type == "VirtualRun" %}
+                  🏃‍♂️
+                {% else %}
+                  ⏱️
+                {% endif %}
+              </span>
+              <span class="activity-card__title-text">
+                {% if activity.url %}
+                  <a href="{{ activity.url }}" target="_blank" rel="noopener noreferrer">{{ activity.name }}</a>
+                {% else %}
+                  {{ activity.name }}
+                {% endif %}
+              </span>
             </h3>
             <p class="activity-card__meta">
-              {{ activity.sport_type | default: activity.type }}
-              {% if activity.start_date %} · {{ activity.start_date | date: "%b %-d, %Y" }}{% endif %}
+              {% if activity.start_date %}{{ activity.start_date | date: "%b %-d, %Y" }}{% endif %}
+              {% if activity.sport_type == "VirtualRide" or activity.sport_type == "VirtualRun" %}
+                · Indoor
+              {% endif %}
             </p>
             <p class="activity-card__stats">
-              {% if activity.distance_km %}{{ activity.distance_km }} km{% endif %}
-              {% if activity.moving_time_minutes %} · {{ activity.moving_time_minutes }} min{% endif %}
-              {% if activity.total_elevation_gain_m %} · {{ activity.total_elevation_gain_m }} m gain{% endif %}
+              {% if activity.distance_km %}
+                {% assign dist_mi = activity.distance_km | times: 0.621371 | round: 2 %}
+                {{ dist_mi }} mi
+              {% endif %}
+              {% if activity.elapsed_time_minutes %}
+                {% assign hrs = activity.elapsed_time_minutes | divided_by: 60 | floor %}
+                {% assign mins = activity.elapsed_time_minutes | modulo: 60 | round %}
+                · {% if hrs > 0 %}{{ hrs }}h {% endif %}{{ mins }}m
+              {% elsif activity.moving_time_minutes %}
+                {% assign hrs = activity.moving_time_minutes | divided_by: 60 | floor %}
+                {% assign mins = activity.moving_time_minutes | modulo: 60 | round %}
+                · {% if hrs > 0 %}{{ hrs }}h {% endif %}{{ mins }}m
+              {% endif %}
+              {% if activity.total_elevation_gain_m %}
+                {% assign elev_ft = activity.total_elevation_gain_m | times: 3.28084 | round %}
+                · {{ elev_ft }} ft gain
+              {% endif %}
             </p>
           </div>
         </article>
       {% endfor %}
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var mapContainers = document.querySelectorAll('.activity-card__map-container--interactive');
+        if (mapContainers.length > 0) {
+          // Load Leaflet CSS
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+          document.head.appendChild(link);
+
+          // Load Leaflet JS
+          var script = document.createElement('script');
+          script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+          script.onload = function() {
+            mapContainers.forEach(function(container, index) {
+              var pointsRaw = container.getAttribute('data-points');
+              if (!pointsRaw) return;
+              var points = JSON.parse(pointsRaw);
+              
+              container.id = 'activity-map-' + index;
+              
+              var map = L.map(container.id, {
+                zoomControl: false,
+                dragging: false,
+                touchZoom: false,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                boxZoom: false,
+                keyboard: false,
+                attributionControl: false
+              });
+
+              // Soft neutral map theme
+              L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19
+              }).addTo(map);
+
+              var polyline = L.polyline(points, {
+                color: '#E24C22',
+                weight: 4,
+                opacity: 0.85,
+                lineCap: 'round',
+                lineJoin: 'round'
+              }).addTo(map);
+
+              map.fitBounds(polyline.getBounds(), { padding: [20, 20] });
+              
+              var url = container.getAttribute('data-url');
+              if (url) {
+                container.style.cursor = 'pointer';
+                container.addEventListener('click', function() {
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                });
+              }
+            });
+          };
+          document.head.appendChild(script);
+        }
+      });
+    </script>
   {% else %}
     <p class="section-lead">Run <code>ruby scripts/fetch_strava.rb</code> to populate recent activities.</p>
   {% endif %}

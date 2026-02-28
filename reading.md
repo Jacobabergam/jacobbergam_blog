@@ -6,14 +6,15 @@ order: 2
 
 <div class="page">
   <h1 class="page-title">{{ page.title }}</h1>
-  <p class="reading-intro">From <a href="https://www.goodreads.com/user/show/114910493-jacob-bergam">Goodreads</a>.</p>
+  <p class="reading-intro">From <a href="https://www.goodreads.com/user/show/114910493-jacob-bergam">Goodreads</a>.{% if site.amazon_associate_tag and site.amazon_associate_tag != "" %} Book links may go to Amazon; as an Amazon Associate I earn from qualifying purchases.{% endif %}</p>
 
   {% if site.data.recently_read and site.data.recently_read.books %}
     {% assign batch_size = 24 %}
     <nav class="reading-grid" aria-label="Books read">
       {% for book in site.data.recently_read.books %}
         {% if book.cover_url %}
-          <a href="{{ book.link }}" class="reading-grid__item {% if forloop.index0 >= batch_size %}reading-grid__item--hidden{% endif %}" target="_blank" rel="noopener noreferrer" title="{{ book.title }}">
+          {% capture book_href %}{% include book_link_url.html book=book %}{% endcapture %}
+          <a href="{{ book_href | strip }}" class="reading-grid__item {% if forloop.index0 >= batch_size %}reading-grid__item--hidden{% endif %}" target="_blank" rel="noopener noreferrer" title="{{ book.title }}">
             <img src="{{ book.cover_url }}" alt="" class="reading-grid__cover" loading="lazy" />
           </a>
         {% endif %}
