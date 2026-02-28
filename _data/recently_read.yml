@@ -1,0 +1,80 @@
+---
+books:
+- title: 'Light Bringer (Red Rising Saga, #6)'
+  link: https://www.goodreads.com/review/show/7574491897?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667655583l/29227774.jpg
+- title: 'Dark Age (Red Rising Saga, #5)'
+  link: https://www.goodreads.com/review/show/7574491875?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1525464420l/29226553.jpg
+- title: 'Iron Gold (Red Rising Saga, #4)'
+  link: https://www.goodreads.com/review/show/7574491822?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1716325988l/33257757.jpg
+- title: 'Morning Star (Red Rising Saga, #3)'
+  link: https://www.goodreads.com/review/show/7574491720?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461354277l/18966806.jpg
+- title: 'Red Rising (Red Rising Saga, #1)'
+  link: https://www.goodreads.com/review/show/7574491597?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461354651l/15839976.jpg
+- title: 'Golden Son (Red Rising Saga, #2)'
+  link: https://www.goodreads.com/review/show/7574491681?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1394684475l/18966819.jpg
+- title: 'When the Heavens Went on Sale: The Misfits and Geniuses Racing to Put Space
+    Within Reach'
+  link: https://www.goodreads.com/review/show/7978148928?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1675644477l/62050244.jpg
+- title: 'Cry Havoc (Tom Reece #1)'
+  link: https://www.goodreads.com/review/show/8065927558?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1741199779l/219441947.jpg
+- title: 'Family Driven Faith: Doing What It Takes to Raise Sons and Daughters Who
+    walk with God'
+  link: https://www.goodreads.com/review/show/7744200342?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1369820299l/1048897.jpg
+- title: 'We Who Wrestle with God: Perceptions of the Divine'
+  link: https://www.goodreads.com/review/show/7647353353?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1707192021l/207611500.jpg
+- title: 'House of Huawei: The Secret History of China''s Most Powerful Company'
+  link: https://www.goodreads.com/review/show/7608130040?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1719031646l/214490408.jpg
+- title: 'Death''s End (Remembrance of Earth’s Past, #3)'
+  link: https://www.goodreads.com/review/show/7457400132?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1430330507l/25451264.jpg
+- title: 'Foundation and Earth (Foundation, #5)'
+  link: https://www.goodreads.com/review/show/6142065596?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389759320l/29582.jpg
+- title: 'Foundation''s Edge (Foundation, #4)'
+  link: https://www.goodreads.com/review/show/6142064955?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442311409l/76683.jpg
+- title: 'Second Foundation (Foundation, #3)'
+  link: https://www.goodreads.com/review/show/6142064188?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661015922l/29580.jpg
+- title: 'Foundation and Empire (Foundation, #2)'
+  link: https://www.goodreads.com/review/show/6142063736?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1391454612l/29581.jpg
+- title: 'Foundation (Foundation, #1)'
+  link: https://www.goodreads.com/review/show/6142063464?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg
+- title: 'The Let Them Theory: A Life-Changing Tool That Millions of People Can''t
+    Stop Talking About'
+  link: https://www.goodreads.com/review/show/7392562045?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1735589383l/216351768.jpg
+- title: 'Hearing God: Developing a Conversational Relationship with God'
+  link: https://www.goodreads.com/review/show/7370046281?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347700127l/97800.jpg
+- title: 'The Dark Forest (Remembrance of Earth’s Past, #2)'
+  link: https://www.goodreads.com/review/show/7356162360?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1412064931l/23168817.jpg
+- title: 'The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the
+    1936 Berlin Olympics'
+  link: https://www.goodreads.com/review/show/7356160850?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1354683116l/16158542.jpg
+- title: 'Tiny Humans, Big Emotions: How to Navigate Tantrums, Meltdowns, and Defiance
+    to Raise Emotionally Intelligent Children'
+  link: https://www.goodreads.com/review/show/7332769311?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1694463055l/84097626.jpg
+- title: 'The Anxious Generation: How the Great Rewiring of Childhood Caused an Epidemic
+    of Mental Illness'
+  link: https://www.goodreads.com/review/show/7327825614?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1711573377l/171681821.jpg
+- title: The Fountainhead
+  link: https://www.goodreads.com/review/show/6536905407?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1491163636l/2122.jpg

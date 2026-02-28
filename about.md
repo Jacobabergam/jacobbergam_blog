@@ -4,29 +4,20 @@ title: About Me
 order: 1
 ---
 
+I am a process integration and electro-optical engineering leader focused on turning advanced sensor and optical concepts into reliable products. My work sits at the intersection of R&D, manufacturing, and cross-functional execution.
 
-Hello! I'm a Laser & Optical Engineer interested in building useful products in the automotive industry. I have a passion for all things technology! I graduated from 🎓 UCSB  with a BS in Physics ⚛️. I'm currently living in Santa Barbara 🏄 with my wife!
+I currently work as a Sr Electro-Optical Systems Engineer at Lockheed Martin, where I contribute to electro-optical system development, cross-functional technical execution, and system-level engineering rigor.
 
-<!--more-->
+Previously, I led process integration at Atomica and held electro-optical engineering roles at Freedom Photonics and Continental Lidar, supporting high-power laser development, lidar optical architecture, system modeling, and production readiness efforts.
 
-### Current Role
-At my day job, I work to bring automotive flash lidar cameras 📸 to market. I've been lucky to have a broad range of topics to work on. Here's a sample of some of my experience:
+### What I Focus On
+- Productization strategy for sensors and optical systems
+- Process integration across fabrication, metrology, and test
+- Automation and data pipelines that improve technical throughput
+- Cross-functional leadership from customer requirements to execution
+- Building teams and workflows that make complex programs repeatable
 
-* Solid-state laser systems 💥
-* Design and procurement of illumination optics for lidar systems
-* Optical coatings such as AR coatings and Bandpass coatings
-* Layout optical systems in Zemax
-* Calculated eye safety according to ANSI Z136.1 and IEC 60825-1 ed3 🚨
-* Design production test cells for testing laser illumination and Lidar calibration
-* Design mechanical parts in CATIA and Solidworks for fast prototyping
-* DFSS green belt
-
-I also have several patents pending pertaining to Lidar systems and often get to travel to Germany🇩🇪 to support our team. 
-
-### Interests
-* Online Learning 🕵
-* Web Dev 👨🏼‍💻
-* Robotics 🤖
-* Data Science 📈
-* Coffee ☕️
-* Muay Thai 👊🏼
+### Background
+- BS in Physics, UC Santa Barbara
+- Lean Six Sigma Green Belt
+- Multiple granted and published patent contributions in lidar and sensor-related technologies

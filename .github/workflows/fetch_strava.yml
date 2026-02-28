@@ -1,0 +1,43 @@
+name: Update Strava Activities
+
+on:
+  schedule:
+    # Run at 2 AM UTC every day
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  fetch_and_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Fetch Strava Activities
+        env:
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+        run: |
+          ruby scripts/fetch_strava.rb
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet _data/strava.yml || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/strava.yml
+          git commit -m "chore: update recent Strava activities"
+          git push

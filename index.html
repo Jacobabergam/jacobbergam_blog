@@ -2,49 +2,126 @@
 layout: default
 title: Home
 ---
-<div class="header">
-  <h1 class="post-title">
-    <a >
-      About Me
-    </a>
-  </h1>
-</div>
-
-<!-- {% assign about = site.pages | where: 'name','about.md' %} -->
-{% if about contains '<!--more-->' %}
-  {{ about.content | split:'<!--more-->' | first }}
-{% else %}
-  {{about}}
-{% endif %}
-
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-        {{ post.excerpt }}
+<section class="hero">
+  <p class="eyebrow">Jacob Bergam</p>
+  <h1 class="hero-title">Electro-Optical Systems Engineer</h1>
+  <p class="hero-subtitle">
+    I build and scale electro-optical systems by combining system-level design,
+    cross-functional execution, and product-focused engineering rigor.
+  </p>
+  <div class="hero-cta">
+    <a class="button-link" href="{{ '/experience' | relative_url }}">View Experience</a>
   </div>
-  {% endfor %}
-</div>
+</section>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
+
+<section class="impact-grid">
+  <article class="impact-card">
+    <h2>Technical Leadership</h2>
+    <p>
+      Program ownership across process integration, test strategy, and delivery
+      alignment with customer scope and milestones.
+    </p>
+  </article>
+  <article class="impact-card">
+    <h2>MEMS + Optics Productization</h2>
+    <p>
+      Experience building robust paths from R&amp;D prototypes to manufacturable
+      systems across advanced sensors and optical architectures.
+    </p>
+  </article>
+  <article class="impact-card">
+    <h2>Automation + Data Systems</h2>
+    <p>
+      Developed automated handling and probing workflows and improved data
+      systems to speed technical decision-making.
+    </p>
+  </article>
+</section>
+
+<section class="featured-work">
+  <h2>Selected Work</h2>
+  <div class="featured-list">
+    <article class="featured-item">
+      <h3>Lockheed Martin: Electro-Optical Systems Engineering</h3>
+      <p>
+        Current role focused on electro-optical systems development, cross-team
+        technical execution, and system-level validation.
+      </p>
+    </article>
+    <article class="featured-item">
+      <h3>Atomica: Process Integration and Sensor Programs</h3>
+      <p>
+        Led sensor-focused initiatives spanning unconventional substrates,
+        test-team creation, and delivery from feasibility through execution.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="recently-read">
+  <h2>Recently Read</h2>
+  <p class="section-lead">
+    Reading is one of my favorite ways to recharge. I bounce between sci-fi and space opera,
+    faith and spirituality, parenting and psychology, narrative nonfiction, and the occasional
+    thriller or business book. I am sharing a few from my
+    <a href="https://www.goodreads.com/user/show/114910493-jacob-bergam">Goodreads</a> shelf in case
+    it helps you find your next great read.
+  </p>
+  {% if site.data.recently_read and site.data.recently_read.books %}
+    <div class="recently-read-grid recently-read-grid--compact">
+      {% for book in site.data.recently_read.books limit: 6 %}
+        {% if book.cover_url %}
+          <a href="{{ book.link }}" class="recently-read-grid__item" target="_blank" rel="noopener noreferrer" title="{{ book.title }}">
+            <img src="{{ book.cover_url }}" alt="" class="recently-read-grid__cover" loading="lazy" />
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <p class="recently-read-cta">
+      <a class="button-link button-link-secondary" href="{{ '/reading' | relative_url }}">See all</a>
+    </p>
   {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
+</section>
+
+<section class="recent-activities">
+  <h2>Recent Strava Activities</h2>
+  <p class="section-lead">
+    Training snapshot from
+    <a href="https://www.strava.com">Strava</a>.
+  </p>
+
+  {% if site.data.strava and site.data.strava.activities %}
+    <div class="activity-grid">
+      {% for activity in site.data.strava.activities limit: 6 %}
+        <article class="activity-card">
+          {% if activity.svg_map %}
+            <a href="{{ activity.url }}" class="activity-card__map-container" target="_blank" rel="noopener noreferrer" aria-label="View on Strava">
+              {{ activity.svg_map }}
+            </a>
+          {% endif %}
+          <div class="activity-card__content">
+            <h3 class="activity-card__title">
+              {% if activity.url %}
+                <a href="{{ activity.url }}" target="_blank" rel="noopener noreferrer">{{ activity.name }}</a>
+              {% else %}
+                {{ activity.name }}
+              {% endif %}
+            </h3>
+            <p class="activity-card__meta">
+              {{ activity.sport_type | default: activity.type }}
+              {% if activity.start_date %} · {{ activity.start_date | date: "%b %-d, %Y" }}{% endif %}
+            </p>
+            <p class="activity-card__stats">
+              {% if activity.distance_km %}{{ activity.distance_km }} km{% endif %}
+              {% if activity.moving_time_minutes %} · {{ activity.moving_time_minutes }} min{% endif %}
+              {% if activity.total_elevation_gain_m %} · {{ activity.total_elevation_gain_m }} m gain{% endif %}
+            </p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
   {% else %}
-    <span class="pagination-item newer">Newer</span>
+    <p class="section-lead">Run <code>ruby scripts/fetch_strava.rb</code> to populate recent activities.</p>
   {% endif %}
-</div>
+</section>

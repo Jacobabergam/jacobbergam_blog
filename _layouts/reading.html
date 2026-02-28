@@ -1,0 +1,42 @@
+---
+# Reading page: wider content area for edge-to-edge title list
+---
+<!DOCTYPE html>
+<html lang="en-us">
+
+  {% include head.html %}
+
+  <body>
+
+    {% include sidebar.html %}
+
+    <div class="content content--reading container">
+      {{ content }}
+    </div>
+
+    <script>
+      (function () {
+        var REVEAL_BATCH = 24;
+        var sentinel = document.getElementById('reading-sentinel');
+        if (!sentinel) return;
+        function revealNextBatch() {
+          var hidden = document.querySelectorAll('.reading-grid__item--hidden');
+          for (var i = 0; i < REVEAL_BATCH && i < hidden.length; i++) {
+            hidden[i].classList.remove('reading-grid__item--hidden');
+          }
+          if (document.querySelectorAll('.reading-grid__item--hidden').length === 0) {
+            sentinel.style.display = 'none';
+          }
+        }
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              revealNextBatch();
+            }
+          });
+        }, { rootMargin: '100px', threshold: 0 });
+        observer.observe(sentinel);
+      })();
+    </script>
+  </body>
+</html>
