@@ -31,7 +31,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet _data/strava.yml || echo "changed=true" >> "$GITHUB_OUTPUT"
+          git diff --quiet _data/strava.yml _data/strava_stats.yml || echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push changes
         if: steps.check_changes.outputs.changed == 'true'
@@ -39,5 +39,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add _data/strava.yml
-          git commit -m "chore: update recent Strava activities"
+          [ -f _data/strava_stats.yml ] && git add _data/strava_stats.yml || true
+          git commit -m "chore: update recent Strava activities and stats"
           git push

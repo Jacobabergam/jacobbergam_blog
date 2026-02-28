@@ -49,6 +49,21 @@ def get_json(uri, headers = {})
   end
 end
 
+def fetch_activity_details(access_token, activity_id)
+  uri = URI("https://www.strava.com/api/v3/activities/#{activity_id}")
+  response = get_json(uri, { "Authorization" => "Bearer #{access_token}" })
+  
+  unless response.is_a?(Net::HTTPSuccess)
+    warn "Strava activity details request failed (#{response.code}): #{response.body}"
+    return nil
+  end
+
+  JSON.parse(response.body)
+rescue JSON::ParserError => e
+  warn "Failed to parse Strava activity details response: #{e.message}"
+  nil
+end
+
 def exchange_refresh_token
   uri = URI("https://www.strava.com/oauth/token")
   response = post_form(
@@ -203,7 +218,8 @@ def normalize_activity(activity)
     "location_state" => activity["location_state"],
     "location_country" => activity["location_country"],
     "url" => id ? "https://www.strava.com/activities/#{id}" : nil,
-    "svg_map" => svg_map
+    "svg_map" => svg_map,
+    "map_points" => decode_polyline(polyline)
   }.compact
 end
 
@@ -213,6 +229,109 @@ def write_data_file(payload)
   out_path = File.join(data_dir, "strava.yml")
   File.write(out_path, payload.to_yaml)
   out_path
+end
+
+def format_time(seconds)
+  hours = seconds / 3600
+  minutes = (seconds % 3600) / 60
+  secs = seconds % 60
+  
+  if hours > 0
+    sprintf("%d:%02d:%02d", hours, minutes, secs)
+  else
+    sprintf("%d:%02d", minutes, secs)
+  end
+end
+
+def parse_time(time_str)
+  return 999999999 if time_str == "???" || time_str.nil?
+  
+  parts = time_str.split(":").map(&:to_i)
+  if parts.length == 3
+    parts[0] * 3600 + parts[1] * 60 + parts[2]
+  elsif parts.length == 2
+    parts[0] * 60 + parts[1]
+  else
+    999999999
+  end
+end
+
+def update_stats(activities, access_token)
+  stats_file = File.join(__dir__, "..", "_data", "strava_stats.yml")
+  stats = YAML.load_file(stats_file) rescue {
+    "run" => { 
+      "half_marathon" => { "time" => "???", "url" => "???" }, 
+      "marathon" => { "time" => "???", "url" => "???" }, 
+      "50k" => { "time" => "???", "url" => "???" }, 
+      "50_mile" => { "time" => "???", "url" => "???" } 
+    },
+    "bike" => { 
+      "50_mile" => { "time" => "???", "url" => "???" }, 
+      "100_mile" => { "time" => "???", "url" => "???" } 
+    }
+  }
+
+  # Ensure migration of old format just in case
+  ["run", "bike"].each do |sport|
+    next unless stats[sport]
+    stats[sport].each do |k, v|
+      if v.is_a?(String)
+        stats[sport][k] = { "time" => v, "url" => "???" }
+      end
+    end
+  end
+
+  stats_updated = false
+
+  activities.each do |activity|
+    # Only fetch details for specific types to find best efforts
+    type = activity["type"] || activity["sport_type"]
+    
+    if type == "Run" || type == "VirtualRun" || type == "Ride" || type == "VirtualRide"
+      details = fetch_activity_details(access_token, activity["id"])
+      next unless details && details["best_efforts"]
+      
+      details["best_efforts"].each do |effort|
+        name = effort["name"]
+        time = effort["moving_time"] || effort["elapsed_time"]
+        
+        if type == "Run" || type == "VirtualRun"
+          key = case name
+                when "Half Marathon" then "half_marathon"
+                when "Marathon" then "marathon"
+                when "50k" then "50k"
+                when "50 mile" then "50_mile"
+                else nil
+                end
+          
+          if key && time < parse_time(stats["run"][key]["time"])
+            stats["run"][key]["time"] = format_time(time)
+            stats["run"][key]["url"] = "https://www.strava.com/activities/#{activity['id']}"
+            stats_updated = true
+            puts "New Run PR! #{name}: #{stats["run"][key]["time"]}"
+          end
+        elsif type == "Ride" || type == "VirtualRide"
+          key = case name
+                when "50 mile" then "50_mile"
+                when "100 mile" then "100_mile"
+                else nil
+                end
+                
+          if key && time < parse_time(stats["bike"][key]["time"])
+            stats["bike"][key]["time"] = format_time(time)
+            stats["bike"][key]["url"] = "https://www.strava.com/activities/#{activity['id']}"
+            stats_updated = true
+            puts "New Bike PR! #{name}: #{stats["bike"][key]["time"]}"
+          end
+        end
+      end
+    end
+  end
+
+  # Always write the file so it exists for the workflow (git add); first run or no PRs
+  # would otherwise leave it missing and cause the workflow to fail.
+  File.write(stats_file, stats.to_yaml)
+  puts "Updated strava_stats.yml with new personal records!" if stats_updated
 end
 
 def main
@@ -227,8 +346,16 @@ def main
   require_env!("access_token", access_token)
   require_env!("refresh_token", refreshed_token)
 
-  activities = fetch_activities(access_token, STRAVA_ACTIVITY_LIMIT)
-  normalized = activities.map { |activity| normalize_activity(activity) }
+  # Fetch more activities initially so we have enough after filtering
+  activities = fetch_activities(access_token, 30)
+
+  # Only keep runs, rides, and swims
+  allowed_types = ["Run", "Ride", "Swim", "VirtualRide", "VirtualRun"]
+  filtered_activities = activities.select do |activity|
+    allowed_types.include?(activity["type"]) || allowed_types.include?(activity["sport_type"])
+  end.first(STRAVA_ACTIVITY_LIMIT)
+
+  normalized = filtered_activities.map { |activity| normalize_activity(activity) }
 
   payload = {
     "fetched_at" => Time.now.utc.iso8601,
@@ -237,6 +364,10 @@ def main
 
   out_path = write_data_file(payload)
   puts "Wrote #{normalized.size} activities to #{out_path}"
+  
+  # Update all-time stats based on recent activities
+  update_stats(normalized, access_token)
+  
   puts "NOTE: Strava may rotate refresh tokens. Save this value if it changes:"
   puts "STRAVA_REFRESH_TOKEN=#{refreshed_token}"
 end
