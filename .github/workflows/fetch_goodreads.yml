@@ -20,6 +20,11 @@ jobs:
         with:
           ruby-version: '3.3'
 
+      # rexml 3.4.3+ introduced stricter parsing that fails on Goodreads' RSS.
+      # Pin to 3.4.2 which parses the feed correctly.
+      - name: Pin rexml to compatible version
+        run: gem install rexml -v 3.4.2
+
       - name: Fetch Goodreads Read List
         env:
           # Optional: set GOODREADS_USER_ID in repo secrets to override script default
