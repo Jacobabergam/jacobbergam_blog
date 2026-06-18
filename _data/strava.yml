@@ -1,6 +1,18 @@
 ---
-fetched_at: '2026-06-17T03:10:13Z'
+fetched_at: '2026-06-18T03:09:59Z'
 activities:
+- id: 18952755086
+  name: Peloton - 30 min Just Ride
+  type: Ride
+  sport_type: Ride
+  start_date: '2026-06-17T03:30:40Z'
+  distance_km: 13.6
+  moving_time_minutes: 30.6
+  elapsed_time_minutes: 30.6
+  average_speed_kph: 26.63
+  max_speed_kph: 34.06
+  total_elevation_gain_m: 0.0
+  url: https://www.strava.com/activities/18952755086
 - id: 18654423393
   name: 30 min HIIT & Hills Ride with Alex Toussaint
   type: Ride
@@ -322,15 +334,3 @@ activities:
     87.82 47.81 L 88.05 47.55 L 88.74 48.14 L 88.93 48.16 L 89.05 48.11" fill="none"
     stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   polyline: wchqEhr}yUbOLzLKlBa@b@_BFmBxAVx@It@m@h@cAZmBWoEXsCMYnAuAfAYjAPjBhAj@Cf@g@EmXHa@rQG|BFJVEORClFBnD{AjASdBr@fBfBjC|D`@xAEfCOj@]ZIY]Ma@r@M~@QpTi@vTeAzIy@hNw@pD_@z@\H~EtGH~Bx@xFpAbFQxIShEDdELx@dBvBp@lBFlCQlQt@h@`ILd@`@WxFX~ANHBf@bFlJ`@P`@xA~AzCpCpCVn@Z~D~@~CK`@cAt@ThEl@`Cx@jGpA`D|@dBHCn@dBdFvJf@`BfAdBLn@dCjFZnBHdCCdGHhDj@xDxAnWx@zF\lNGv@FgAa@qJHQE_B{@cFkAmTy@iHImNc@yDkBsEmBgDcAuCoG_M}BgFcAwHm@iCQqDjAcAaAsEOyBq@_BsBeBgCwF[YmFyJk@eCTgGcAc@qGKk@GQWH_Vc@_BuB_CUiADyAMy@PcLPkDw@cCa@yB}@wG@_A}E{G~@qDRaBGe@Vi@d@eJz@}IT_GNaQKeA\qPBQTEv@uDhAkCfHcLvLaNvKkSdF_M~CiJjIcN~@kEXaFl@LLh@j@`@pLhEjBnAbCnCvJ`K~BlBlAn@fI~@tHoBdE_BtCa@zBEjFb@lAZlH?tBQzPkCxHg@pAm@`@h@b@hBZpChIbPN@GYJ?SMEP[?iCeACk@a@oAGoA_AmELYi@cASk@I}@Hk@fAa@AgBTaA^sDfBgEjGf@jC@jC_@vAP`@SbCqFdAoEBwFH{Dv@oCA}DRMbB?|@iCjCuC`@aA|@[TkAZsCGc@gCw@GObAuKBi@KSRGRmDA{DmAQBaBQeA`@m@d@e@z@uDD_BOaFTyGg@{Hp@sH`@cHKOd@gF^wA^mDC{D]{Fk@eDiCcJq@wFaByCgBoBcHwBqBuAqIkJRiB}AyBm@kCKaBHy@YcBNw@Q_Ds@eC_AgBiCeCaBJ{AWaAg@eAgAgGiBWJ_@dAoCiBmAR}@}@g@eA_@JqDuDoCeDiAyBcDgDCc@yBiBkByBPmAEw@uCiIMyAQ]JUKKaAkJuAsAI[WgEE{EYeEu@oFKmC}De^QcAi@MsB{QjE``@Jn@PBINNjBtBbQjA|VjBjVhCMp@nB`CbGh@|ChA|@Vx@h@ETt@EN`ExEj@lAnA|A~EnFXNTMVl@vA|A~@]hCrBTKVcATE~FfBp@^hBvAb@C\RdBI|@`@nAcCC{A{@aAhCaEBs@Kc@
-- id: 17400617487
-  name: 20 min Italian Alps Ride
-  type: Ride
-  sport_type: Ride
-  start_date: '2026-02-15T00:31:41Z'
-  distance_km: 9.03
-  moving_time_minutes: 20.0
-  elapsed_time_minutes: 20.0
-  average_speed_kph: 27.08
-  max_speed_kph: 31.1
-  total_elevation_gain_m: 0.0
-  url: https://www.strava.com/activities/17400617487
