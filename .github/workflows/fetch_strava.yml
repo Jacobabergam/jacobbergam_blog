@@ -33,30 +33,20 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Fetch Strava Activities
-        id: fetch
+      - name: Fetch Strava Activities (with retry)
         env:
           STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
         run: |
           if ruby scripts/fetch_strava.rb; then
-            echo "fetch_ok=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "fetch_ok=false" >> "$GITHUB_OUTPUT"
+            echo "Fetch succeeded"
+            exit 0
           fi
 
-      - name: Retry fetch on failure
-        if: steps.fetch.outputs.fetch_ok == 'false'
-        id: retry
-        run: |
           echo "Fetch failed — waiting 30 minutes before retry..."
           sleep 1800
           ruby scripts/fetch_strava.rb
-        env:
-          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
-          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
 
       - name: Validate feed data
         run: python3 .github/scripts/validate_feeds.py

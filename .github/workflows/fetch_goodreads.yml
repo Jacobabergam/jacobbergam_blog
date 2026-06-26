@@ -72,28 +72,19 @@ jobs:
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
           GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
 
-      - name: Fetch Goodreads Read List
-        id: fetch
+      - name: Fetch Goodreads Read List (with retry)
         env:
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
           GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
         run: |
           if ruby scripts/fetch_goodreads.rb; then
-            echo "fetch_ok=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "fetch_ok=false" >> "$GITHUB_OUTPUT"
+            echo "Fetch succeeded"
+            exit 0
           fi
 
-      - name: Retry fetch on failure
-        if: steps.fetch.outputs.fetch_ok == 'false'
-        id: retry
-        run: |
           echo "Fetch failed — waiting 30 minutes before retry..."
           sleep 1800
           ruby scripts/fetch_goodreads.rb
-        env:
-          GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
-          GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
 
       - name: Validate feed data
         run: python3 .github/scripts/validate_feeds.py
