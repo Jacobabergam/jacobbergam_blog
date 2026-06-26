@@ -35,21 +35,15 @@ jobs:
 
       # rexml 3.4.3+ introduced stricter parsing that fails on Goodreads' RSS.
       # Ruby 3.3 ships 3.4.4 as a default gem that can't be uninstalled.
-      # Instead, install 3.4.2 as a user gem and force Ruby to load it via
-      # RUBYOPT and the user gem's lib directory.
+      # Install 3.4.2 as a user gem and use -I to prepend it to $LOAD_PATH.
       - name: Pin rexml to compatible version
         id: rexml_pin
         run: |
           gem install rexml -v 3.4.2 --no-document
-          REXML_LIB=$(gem contents rexml --lib-dir -v 3.4.2 2>/dev/null | head -1)
-          if [ -n "$REXML_LIB" ] && [ -d "$REXML_LIB" ]; then
-            echo "rexml_lib=$REXML_LIB" >> "$GITHUB_OUTPUT"
-            echo "Using rexml 3.4.2 from: $REXML_LIB"
-            ruby -I"$REXML_LIB" -e 'require "rexml"; puts "rexml version: #{REXML::VERSION}"'
-          else
-            echo "ERROR: Could not find rexml 3.4.2 lib directory"
-            exit 1
-          fi
+          REXML_LIB=$(ruby -e 'puts Gem::Specification.find_by_name("rexml", "=3.4.2").full_require_paths[0]')
+          echo "rexml_lib=$REXML_LIB" >> "$GITHUB_OUTPUT"
+          echo "Using rexml 3.4.2 from: $REXML_LIB"
+          ruby -I"$REXML_LIB" -e 'require "rexml"; puts "rexml version: #{REXML::VERSION}"'
 
       - name: Probe Goodreads RSS feed
         run: |
