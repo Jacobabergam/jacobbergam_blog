@@ -561,12 +561,15 @@
 }
 
 .activity-card__brand-logo {
-  width: 40%;
-  max-width: 140px;
+  position: absolute;
+  top: 26%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  max-width: 90px;
   height: auto;
-  opacity: 0.25;
+  opacity: 0.4;
   pointer-events: none;
-  filter: drop-shadow(0 2px 8px rgba(223, 28, 47, 0.15));
 }
 
 .strava-route {

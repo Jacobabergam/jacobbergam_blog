@@ -190,13 +190,18 @@ def generate_svg(points)
   "<svg viewBox=\"0 0 #{total_width} #{total_height}\" xmlns=\"http://www.w3.org/2000/svg\" class=\"strava-route\"><path d=\"#{path_data}\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
 end
 
-def detect_brand(activity)
+# Maps a Strava activity to a known brand using the recording device first
+# (most reliable: Peloton imports report device_name "Peloton Bike"), then
+# falling back to the activity title for older imports without device data.
+def detect_brand(activity, detail = nil)
+  device = detail && detail["device_name"].to_s
+  return "peloton" if device && device.match?(/peloton/i)
   return "peloton" if activity["name"].to_s.match?(/peloton/i)
 
   nil
 end
 
-def normalize_activity(activity)
+def normalize_activity(activity, detail = nil)
   id = activity["id"]
   distance_m = number_or_nil(activity["distance"])
   moving_time_s = number_or_nil(activity["moving_time"])
@@ -226,7 +231,8 @@ def normalize_activity(activity)
     "url" => id ? "https://www.strava.com/activities/#{id}" : nil,
     "svg_map" => svg_map,
     "polyline" => (polyline && !polyline.empty?) ? polyline : nil,
-    "brand" => detect_brand(activity)
+    "device_name" => (detail && detail["device_name"]),
+    "brand" => detect_brand(activity, detail)
   }.compact
 end
 
@@ -362,7 +368,12 @@ def main
     allowed_types.include?(activity["type"]) || allowed_types.include?(activity["sport_type"])
   end.first(STRAVA_ACTIVITY_LIMIT)
 
-  normalized = filtered_activities.map { |activity| normalize_activity(activity) }
+  # Fetch each activity's detail so we can read device_name (the list endpoint
+  # omits it). This is what lets us reliably tag Peloton rides by source.
+  normalized = filtered_activities.map do |activity|
+    detail = fetch_activity_details(access_token, activity["id"])
+    normalize_activity(activity, detail)
+  end
 
   payload = {
     "fetched_at" => Time.now.utc.iso8601,

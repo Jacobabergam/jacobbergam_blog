@@ -1,3 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true">
-  <path fill="#DF1C2F" d="M160 96h128c70.7 0 128 57.3 128 128s-57.3 128-128 128H256v96H160V96zm96 192c35.3 0 64-28.7 64-64s-28.7-64-64-64H256v128h0z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill-rule="evenodd" aria-hidden="true">
+  <path fill="#7C828A" d="M176 80h104a112 112 0 0 1 0 224h-56v128h-48V80zM224 144v96h56a48 48 0 0 0 0-96h-56z"/>
 </svg>

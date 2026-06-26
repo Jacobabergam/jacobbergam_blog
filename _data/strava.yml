@@ -1,5 +1,5 @@
 ---
-fetched_at: '2026-06-26T03:09:08Z'
+fetched_at: '2026-06-26T23:02:50Z'
 activities:
 - id: 19002717677
   name: Peloton - 60 min Entertainment Ride
@@ -13,6 +13,7 @@ activities:
   max_speed_kph: 31.03
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/19002717677
+  device_name: Peloton Bike
   brand: peloton
 - id: 18952755086
   name: Peloton - 30 min Just Ride
@@ -26,6 +27,7 @@ activities:
   max_speed_kph: 34.06
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/18952755086
+  device_name: Peloton Bike
   brand: peloton
 - id: 18654423393
   name: 30 min HIIT & Hills Ride with Alex Toussaint
@@ -39,6 +41,8 @@ activities:
   max_speed_kph: 37.44
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/18654423393
+  device_name: Peloton Bike
+  brand: peloton
 - id: 18035330810
   name: 6.5mi Easy Run
   type: Run
@@ -119,6 +123,7 @@ activities:
     8.1 L 5.33 8.0 L 5.24 7.6 L 5.33 6.91 L 5.27 5.56" fill="none" stroke="currentColor"
     stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   polyline: ybhqEbr}yU`HBNJx^qIT}@JaAYuDBqA`@}B\s@n@c@J@~@Kd@Hh@Z^^f@Pv@BTEHa@CmABqBBu@GqABa@Ei@Bu@AgDBUEaD@a@FINBZGd@Dz@ERLL?BKDCPFbA?HE^Dl@EdA?\DfB?XCDIFHTJ@CEEv@BPGX?LDDLC@CG`@@b@Ib@@b@GRDPC|ABr@QDORC`@YjA_@l@?^D`@L`@TZb@r@j@t@bAbA~ANHb@x@R`AF@@FIbBEJSfAKDKAc@UIOLy@Re@VeAPYD[Z[J]ZUd@_AZc@DUt@iABMd@o@FOIOZEP[TUb@o@f@g@h@y@^[v@eAhAqAv@m@X]`@Yn@gAp@w@^{@NSb@{@DQVY^{@bAgBb@aA^m@n@wAjAwBh@oANm@Xi@z@uBn@uAbA_DHKn@mBHg@HCv@uB^i@DMrAmBNKb@_ANIBILMZm@LMNc@T_@l@_BB]Tu@@c@HQB{@DUDaCDKHEZLFERn@n@f@tA`@rCjAV?HP~@VtB|@~@t@LAFLz@t@GAGOe@YUWwAu@wAm@I@AGkBq@qCkAwAc@_@WKSIa@WAKKMBIp@@ZKfB@LIp@k@xCa@bAa@h@]t@i@p@m@jAyAnBa@t@CNIDYf@u@jBI`@e@vAm@bBW|@OVMb@_AhBW|@QZm@~AeBnDE@[r@y@tAM^]j@q@xAOP_@x@UT]j@e@dAcA|AWTk@r@kBjBUP{@bACJ_Av@o@z@cChDM`@MLi@jAM??Jk@bAERc@d@Ub@YZEXO\Mp@O^QhADHf@NHAFIR{@BW@gAIu@]w@]g@KCBAACUSCMS_@WWq@aA}AwAQK[Ea@OeAFmAd@_@RELm@P[@i@EwBBSGKDGN?K@BeACQEiAD_@?y@Gm@FiACk@Bc@G{A@iAD_AIcBFCH?l@CFDbBEp@DTEbDBTCj@Dn@C^?xB@RCD@rABPAr@KHo@D{@WWUe@MQUaAMm@H{@j@i@`AEXIT?NINMbA?x@LjAAVHhAInAK\[n@s@t@_@JM?y@Gm@NCP?bCQn@KJ}Bd@a@@oACsA?c@D_BAq@J}@K[Bo@Ek@@SFGI_AIWDw@?EEWDi@EqAB
+  device_name: Runna
 - id: 17654381755
   name: Race day
   type: Run
@@ -193,6 +198,7 @@ activities:
     26.18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"
     stroke-linejoin="round"/></svg>
   polyline: _c~nE~fupU~AZlCXdAfBNr@z@`NGrE@`Vl@_@~AW`GUfEBdEg@`JqBbG_BrAoAn@eA~JqLdBmC@i@n@Mn@cAdB_BjCoD`FcL~B}E_BeAmI_DkGaDKUxAoFlBb@pBdA~LfEZ^Z`Dr@`AvIhIrFrET@xAfBbGbF^Jl@a@lEuG`@a@^AnDtCjF|C|ChChC`CzAvCaBfBs@dA}DeDeAk@a@@_AjBOt@y@f@g@hA]Ja@pAmBtB{@dB}BqAyCiCcF}Ea@Hg@hA{@n@cBnD}@hAuCaAaJsIeA|AgEnEMf@OAyA~A}@vAiCnBcBt@c@~@mCxBqCpAqB|AeGvF{EfFa@r@q@D{BaAa@FiItVwF`P_AfB_DDgBp@SEFHCIITDHBIa@G}C`@_KU}Ee@oIn@E`AnAdOIzAu@zB{@t@w@vAuAdEwFzLmH~HoF`JeDtDuJxD{FdB_GrCaH|BqAj@{AnAw@|A}@bDm@dAkClCaCfBySzVUf@OCwG~HeG`KgAjCe@`@_DbF[dAFTq@d@aCrDkCrFQ`BAfL?rUHlBItHFv^K`D@xHJ|FIhDHRCnVJrC@t`@ErKMRvV|fC@j]GrGSfDXfTKf[FpH?tECbGOrB@~@^pF?bNr@|BrCpEzCzIlBpCp@tAtAzGVrDrAhI~FtJjAdCbAvD|AlD~@xC\|BhClFV`C@|ELjAvGd@bI@rBk@nJcFf@Eh@h@dExGvI|OvCjE\TvTJbFMtGPfBObCR`JCLdDAxVH`DQzBLtD?nJZfDE~IJ~BR`Bd@~AlCjFj@n@RBfHyG|AkAvEyETk@ZIRPh@bIGb@Ah@LrBSjBLlJIjGJjDKt@JjDhAhAHdAfA|Br@x@|I|NZz@XbDtCzFzDdGhAdCbK`O|IxOdOzUr@dBhMfSfBpDrBvChGtKn@~BvGr]hEnVVhBC`@sBtB}KtIw@z@aA`@wM`LmEfDgHnGKb@RdA\l@v@TIx@zAvDzBvLhArEr@lBfAxAnAbAvBz@fDf@lAr@Np@Qv@cClCmJtHUn@YlEIhEp@vHxBfPAr@T`@?l@JNzBxTp@bE^t@DMg@wDGmBuAuIUmDkE_]YkFFwDj@kEvLcKnAuADa@aAcB{FuAcB}@cCwCg@cAq@_CcDkP_BgEKs@[Ek@sBp@y@nYsUxA{AdCgBNBRi@jHyFdC{Bd@i@BiAsIie@]uCsBkKw@sCeNmVqEwGkQ_Z{EsIk@m@[{@eKwQ
+  device_name: Apple Watch Ultra 3
 - id: 17583310814
   name: 8.5mi Hilly Long Run
   type: Run
@@ -272,3 +278,4 @@ activities:
     L 10.9 17.95 L 10.27 17.99 L 9.17 18.17 L 8.48 18.13" fill="none" stroke="currentColor"
     stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   polyline: cbhqEhr}yUbGARJlJ?\GjBDl@EHYPXd@@`@MtAMRw@ROEK?gBL]LAZPv@J^Et@c@b@e@Ra@\eBA_AWaE^_C?YHObAaA|@SbAPhAx@VJZ@FM`@CRKDiCEqCDw@@qHCsDB]lAIpAFdEEXHDGnFDTGNFx@CHFBLAGG?dCK~BBr@Q|@k@pAc@z@Ab@H|@`@hAdA|ArBJNEDDHHDx@lAV~@D~@S|BMTK@k@YGOJY?]Vq@CQFCd@yAVUTi@TQpBoDVq@nBwClDgExEuEjAaB`AsBpAuBPo@`@m@N_@HEjEsI^gAh@yA~@qBF[Ze@?[RIv@{BNs@f@mADWR]h@yA`@k@n@oANMr@kANIb@u@?QJAl@y@Pi@RQ@ST]?KNc@d@}BJkAAq@HmBLGd@LRj@f@`@lBn@zAh@h@ZzDzA|BrAhAfAl@z@HBBJVXH?`AjAj@d@nAxAvArAn@z@pAjA~BfAlCd@xBLv@Rd@[lAMdBi@t@M^KNWZA`C}@hBa@d@?`AMdB?tBPLEFLnADvAV~BJpCAbCQfAa@vB]jEa@|Dk@zBCjBa@tAGr@_@XATNPb@VjADh@J`@Jz@ZJL`@Bb@FLANDDf@pCFjCRJ`@AFHF^LPP@JL|@^t@DNTkCw@m@g@Uk@c@FK_@CkB}@{ECe@CGSDKYs@uES[SImAd@{AHgAXUAGHYMIF_A?sEr@gADcCb@iBN_A\gCReE@eBIaASeDS_AOuB?e@Pk@Ak@NEHcANuFhBENIBs@FcAXa@Bm@\q@SoBIwBYcAW{Aq@qDkDi@u@w@s@SIk@_Ay@}@eAaAy@kA{AqAuE{BsC_AaE_BUWQGBMEQ]QMJGdDOzAa@lBS`@CR_AnBy@bAcBnC_@`@eApBeAxCOV{@tCu@dBQl@}@lB[~@e@x@Qr@_E~Ha@l@[t@@Ne@b@S^@HaA|AaAlB{BrCeBzAeBxBeBfB{BdDqCbFm@x@Ql@OLSh@a@xAKn@?RBFf@PNIR_AD}@GUFMMy@Oc@i@w@OEOc@g@w@kA{AoAeAs@Uk@Eu@JaA`@EH]DKP_AVg@K[J_CEOHwBO[FcCBeDIeBDyEAORFjCE|CDjCGbED|DMPw@DaAa@s@k@eAQcAJo@`@U\_@dA]rBBjAPbCCrA
+  device_name: Runna
