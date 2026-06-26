@@ -9,6 +9,11 @@ on:
 jobs:
   fetch_and_commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,19 +25,70 @@ jobs:
         with:
           ruby-version: '3.3'
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
       # rexml 3.4.3+ introduced stricter parsing that fails on Goodreads' RSS.
-      # Pin to 3.4.2 which parses the feed correctly.
+      # Ruby 3.3 ships 3.4.4 as a default gem, so remove it before installing 3.4.2.
       - name: Pin rexml to compatible version
-        run: gem install rexml -v 3.4.2
+        run: |
+          gem uninstall rexml --all --executables --force || true
+          gem install rexml -v 3.4.2 --no-document
+          ruby -e 'gem "rexml", "3.4.2"; require "rexml"; puts "rexml #{REXML::VERSION}"'
+
+      - name: Probe Goodreads RSS feed
+        run: |
+          USER_ID="${GOODREADS_USER_ID:-114910493}"
+          KEY_PARAM=""
+          if [ -n "$GOODREADS_API_KEY" ]; then
+            KEY_PARAM="&key=$GOODREADS_API_KEY"
+          fi
+          URL="https://www.goodreads.com/review/list_rss/${USER_ID}?shelf=read&sort=date_read&per_page=1${KEY_PARAM}"
+          echo "Probing: $URL"
+          HTTP_CODE=$(curl -s -o /tmp/goodreads_rss_probe.xml -w "%{http_code}" "$URL")
+          echo "HTTP status: $HTTP_CODE"
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "FAIL: Goodreads RSS returned HTTP $HTTP_CODE (expected 200)"
+            exit 1
+          fi
+          if head -1 /tmp/goodreads_rss_probe.xml | grep -qi '<!DOCTYPE\|<html'; then
+            echo "FAIL: Goodreads returned HTML instead of RSS"
+            exit 1
+          fi
+          if ! grep -q '<item>' /tmp/goodreads_rss_probe.xml; then
+            echo "FAIL: Goodreads RSS has no <item> elements"
+            exit 1
+          fi
+          echo "Goodreads RSS probe OK"
+        env:
+          GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
+          GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
 
       - name: Fetch Goodreads Read List
+        id: fetch
         env:
-          # Optional: set GOODREADS_USER_ID in repo secrets to override script default
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
-          # Optional: set GOODREADS_API_KEY in repo secrets if RSS requires it
           GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
         run: |
           ruby scripts/fetch_goodreads.rb
+
+      - name: Retry fetch on failure
+        if: failure() && steps.fetch.outcome == 'failure'
+        run: |
+          echo "Fetch failed — waiting 30 minutes before retry..."
+          sleep 1800
+          ruby scripts/fetch_goodreads.rb
+        env:
+          GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
+          GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
+
+      - name: Validate feed data
+        run: python3 .github/scripts/validate_feeds.py
 
       - name: Check for changes
         id: check_changes
@@ -47,3 +103,38 @@ jobs:
           git add _data/recently_read.yml
           git commit -m "chore: update recently read books from Goodreads"
           git push
+
+      - name: Log failure to Issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = `**Goodreads fetch failed** on ${date}\n\nWorkflow run: ${runUrl}\n\n<details><summary>Details</summary>\n\nThe Goodreads RSS probe, fetch, or validation failed. Check the workflow logs for specifics.\n\n</details>`;
+
+            const existing = await github.rest.issues.listForRepo({
+              ...context.repo,
+              state: 'open',
+              labels: 'feed-health'
+            });
+
+            const title = 'Feed health check failed';
+            let issue;
+            if (existing.data.length > 0) {
+              issue = existing.data[0];
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: issue.number,
+                body
+              });
+            } else {
+              const created = await github.rest.issues.create({
+                ...context.repo,
+                title,
+                body,
+                labels: ['feed-health']
+              });
+              issue = created.data;
+            }
+            console.log(`Logged failure to issue #${issue.number}`);
