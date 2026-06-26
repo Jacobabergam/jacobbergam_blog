@@ -80,8 +80,8 @@ jobs:
             exit 0
           fi
 
-          echo "Fetch failed — retrying in 30 seconds..."
-          sleep 30
+          echo "Fetch failed — waiting 30 minutes before retry..."
+          sleep 1800
           bundle exec ruby scripts/fetch_goodreads.rb
 
       - name: Validate feed data

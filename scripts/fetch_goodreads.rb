@@ -26,7 +26,13 @@ def build_rss_uri(page)
 end
 
 def fetch_rss(uri)
-  Net::HTTP.get(uri)
+  Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") do |http|
+    req = Net::HTTP::Get.new(uri)
+    req["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+    response = http.request(req)
+    raise "HTTP #{response.code}: #{response.body[0..200]}" unless response.is_a?(Net::HTTPSuccess)
+    response.body
+  end
 rescue StandardError => e
   warn "Failed to fetch Goodreads RSS: #{e.message}"
   exit 1
