@@ -116,7 +116,7 @@ order: 3
         {% else %}
           <a href="{{ activity.url }}" class="activity-card__map-container activity-card__map-container--empty{% if activity.brand == 'peloton' %} activity-card__map-container--peloton{% endif %}" target="_blank" rel="noopener noreferrer" aria-label="View on Strava">
             {% if activity.brand == 'peloton' %}
-              <img src="{{ '/images/peloton-logo.svg' | relative_url }}" alt="" class="activity-card__brand-logo" aria-hidden="true">
+              <img src="{{ '/' | relative_url }}public/images/peloton-logo.svg" alt="" class="activity-card__brand-logo" aria-hidden="true">
             {% endif %}
           </a>
         {% endif %}
