@@ -190,6 +190,12 @@ def generate_svg(points)
   "<svg viewBox=\"0 0 #{total_width} #{total_height}\" xmlns=\"http://www.w3.org/2000/svg\" class=\"strava-route\"><path d=\"#{path_data}\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
 end
 
+def detect_brand(activity)
+  return "peloton" if activity["name"].to_s.match?(/peloton/i)
+
+  nil
+end
+
 def normalize_activity(activity)
   id = activity["id"]
   distance_m = number_or_nil(activity["distance"])
@@ -219,7 +225,8 @@ def normalize_activity(activity)
     "location_country" => activity["location_country"],
     "url" => id ? "https://www.strava.com/activities/#{id}" : nil,
     "svg_map" => svg_map,
-    "polyline" => (polyline && !polyline.empty?) ? polyline : nil
+    "polyline" => (polyline && !polyline.empty?) ? polyline : nil,
+    "brand" => detect_brand(activity)
   }.compact
 end
 

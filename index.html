@@ -191,8 +191,10 @@ title: Home
               {{ activity.svg_map }}
             </a>
           {% else %}
-            <a href="{{ activity.url }}" class="activity-card__map-container activity-card__map-container--empty" target="_blank" rel="noopener noreferrer" aria-label="View on Strava">
-              <!-- Empty vibey background is handled by CSS -->
+            <a href="{{ activity.url }}" class="activity-card__map-container activity-card__map-container--empty{% if activity.brand == 'peloton' %} activity-card__map-container--peloton{% endif %}" target="_blank" rel="noopener noreferrer" aria-label="View on Strava">
+              {% if activity.brand == 'peloton' %}
+                <img src="{{ '/images/peloton-logo.svg' | relative_url }}" alt="" class="activity-card__brand-logo" aria-hidden="true">
+              {% endif %}
             </a>
           {% endif %}
           <div class="activity-card__content">

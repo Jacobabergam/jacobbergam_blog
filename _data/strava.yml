@@ -13,6 +13,7 @@ activities:
   max_speed_kph: 31.03
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/19002717677
+  brand: peloton
 - id: 18952755086
   name: Peloton - 30 min Just Ride
   type: Ride
@@ -25,6 +26,7 @@ activities:
   max_speed_kph: 34.06
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/18952755086
+  brand: peloton
 - id: 18654423393
   name: 30 min HIIT & Hills Ride with Alex Toussaint
   type: Ride
