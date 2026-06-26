@@ -93,7 +93,7 @@ def parse_rss(xml_str)
   # Goodreads RSS includes a self-closing <xhtml:meta> tag inside <channel>
   # that REXML rejects as "Missing end tag for 'meta' (got 'head')".
   # Strip it before parsing — it's just a robots noindex directive, not data.
-  cleaned = stripped.gsub(%r{<xhtml:meta[^/]*/>}, "")
+  cleaned = stripped.gsub(/<xhtml:meta.*?\/>/m, "")
 
   doc = REXML::Document.new(cleaned)
   items = []
