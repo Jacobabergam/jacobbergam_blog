@@ -34,15 +34,22 @@ jobs:
         run: pip install pyyaml
 
       # rexml 3.4.3+ introduced stricter parsing that fails on Goodreads' RSS.
-      # Ruby 3.3 ships 3.4.4 as a default gem in a protected system path, so the
-      # normal gem uninstall can't remove it. Uninstall from the system gem dir
-      # explicitly, then install 3.4.2.
+      # Ruby 3.3 ships 3.4.4 as a default gem that can't be uninstalled.
+      # Instead, install 3.4.2 as a user gem and force Ruby to load it via
+      # RUBYOPT and the user gem's lib directory.
       - name: Pin rexml to compatible version
+        id: rexml_pin
         run: |
-          DEFAULT_GEM_DIR=$(ruby -e 'puts Gem.default_dir')
-          gem uninstall rexml --all --force --install-dir "$DEFAULT_GEM_DIR" || true
           gem install rexml -v 3.4.2 --no-document
-          ruby -e 'gem "rexml", "3.4.2"; require "rexml"; puts "rexml #{REXML::VERSION}"'
+          REXML_LIB=$(gem contents rexml --lib-dir -v 3.4.2 2>/dev/null | head -1)
+          if [ -n "$REXML_LIB" ] && [ -d "$REXML_LIB" ]; then
+            echo "rexml_lib=$REXML_LIB" >> "$GITHUB_OUTPUT"
+            echo "Using rexml 3.4.2 from: $REXML_LIB"
+            ruby -I"$REXML_LIB" -e 'require "rexml"; puts "rexml version: #{REXML::VERSION}"'
+          else
+            echo "ERROR: Could not find rexml 3.4.2 lib directory"
+            exit 1
+          fi
 
       - name: Probe Goodreads RSS feed
         run: |
@@ -76,15 +83,17 @@ jobs:
         env:
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
           GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
+          REXML_LIB: ${{ steps.rexml_pin.outputs.rexml_lib }}
         run: |
-          if ruby scripts/fetch_goodreads.rb; then
+          RUBY="ruby -I$REXML_LIB"
+          if $RUBY scripts/fetch_goodreads.rb; then
             echo "Fetch succeeded"
             exit 0
           fi
 
           echo "Fetch failed — waiting 30 minutes before retry..."
           sleep 1800
-          ruby scripts/fetch_goodreads.rb
+          $RUBY scripts/fetch_goodreads.rb
 
       - name: Validate feed data
         run: python3 .github/scripts/validate_feeds.py
