@@ -34,10 +34,13 @@ jobs:
         run: pip install pyyaml
 
       # rexml 3.4.3+ introduced stricter parsing that fails on Goodreads' RSS.
-      # Ruby 3.3 ships 3.4.4 as a default gem, so remove it before installing 3.4.2.
+      # Ruby 3.3 ships 3.4.4 as a default gem in a protected system path, so the
+      # normal gem uninstall can't remove it. Uninstall from the system gem dir
+      # explicitly, then install 3.4.2.
       - name: Pin rexml to compatible version
         run: |
-          gem uninstall rexml --all --executables --force || true
+          DEFAULT_GEM_DIR=$(ruby -e 'puts Gem.default_dir')
+          gem uninstall rexml --all --force --install-dir "$DEFAULT_GEM_DIR" || true
           gem install rexml -v 3.4.2 --no-document
           ruby -e 'gem "rexml", "3.4.2"; require "rexml"; puts "rexml #{REXML::VERSION}"'
 
@@ -71,6 +74,7 @@ jobs:
 
       - name: Fetch Goodreads Read List
         id: fetch
+        continue-on-error: true
         env:
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
           GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
@@ -78,7 +82,9 @@ jobs:
           ruby scripts/fetch_goodreads.rb
 
       - name: Retry fetch on failure
-        if: failure() && steps.fetch.outcome == 'failure'
+        if: steps.fetch.outcome == 'failure'
+        id: retry
+        continue-on-error: true
         run: |
           echo "Fetch failed — waiting 30 minutes before retry..."
           sleep 1800
@@ -86,6 +92,12 @@ jobs:
         env:
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
           GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
+
+      - name: Fail job if fetch and retry both failed
+        if: steps.fetch.outcome == 'failure' && steps.retry.outcome == 'failure'
+        run: |
+          echo "Fetch and retry both failed. Failing the job."
+          exit 1
 
       - name: Validate feed data
         run: python3 .github/scripts/validate_feeds.py
