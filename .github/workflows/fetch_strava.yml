@@ -35,18 +35,20 @@ jobs:
 
       - name: Fetch Strava Activities
         id: fetch
-        continue-on-error: true
         env:
           STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
         run: |
-          ruby scripts/fetch_strava.rb
+          if ruby scripts/fetch_strava.rb; then
+            echo "fetch_ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "fetch_ok=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Retry fetch on failure
-        if: steps.fetch.outcome == 'failure'
+        if: steps.fetch.outputs.fetch_ok == 'false'
         id: retry
-        continue-on-error: true
         run: |
           echo "Fetch failed — waiting 30 minutes before retry..."
           sleep 1800
@@ -55,12 +57,6 @@ jobs:
           STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
-
-      - name: Fail job if fetch and retry both failed
-        if: steps.fetch.outcome == 'failure' && steps.retry.outcome == 'failure'
-        run: |
-          echo "Fetch and retry both failed. Failing the job."
-          exit 1
 
       - name: Validate feed data
         run: python3 .github/scripts/validate_feeds.py
