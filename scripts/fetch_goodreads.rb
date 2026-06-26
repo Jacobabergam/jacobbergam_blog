@@ -12,8 +12,8 @@ require "yaml"
 require "cgi"
 require "fileutils"
 
-GOODREADS_USER_ID = ENV["GOODREADS_USER_ID"] || "114910493"
-GOODREADS_API_KEY = ENV["GOODREADS_API_KEY"]
+GOODREADS_USER_ID = (ENV["GOODREADS_USER_ID"] || "").strip.empty? ? "114910493" : ENV["GOODREADS_USER_ID"]
+GOODREADS_API_KEY = (ENV["GOODREADS_API_KEY"] || "").strip.empty? ? nil : ENV["GOODREADS_API_KEY"]
 PER_PAGE = 100
 SHELF = "read"
 SORT = "date_read"
