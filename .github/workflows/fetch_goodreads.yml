@@ -34,16 +34,13 @@ jobs:
         run: pip install pyyaml
 
       # rexml 3.4.3+ introduced stricter parsing that fails on Goodreads' RSS.
-      # Ruby 3.3 ships 3.4.4 as a default gem that can't be uninstalled.
-      # Install 3.4.2 as a user gem and use -I to prepend it to $LOAD_PATH.
-      - name: Pin rexml to compatible version
-        id: rexml_pin
+      # Ruby 3.3 ships 3.4.4 as a default gem that can't be overridden.
+      # Use Bundler with a Gemfile that pins rexml 3.4.2.
+      - name: Pin rexml via Bundler
         run: |
-          gem install rexml -v 3.4.2 --no-document
-          REXML_LIB=$(ruby -e 'puts Gem::Specification.find_by_name("rexml", "=3.4.2").full_require_paths[0]')
-          echo "rexml_lib=$REXML_LIB" >> "$GITHUB_OUTPUT"
-          echo "Using rexml 3.4.2 from: $REXML_LIB"
-          ruby -I"$REXML_LIB" -e 'require "rexml"; puts "rexml version: #{REXML::VERSION}"'
+          bundle config --local path vendor/bundle
+          bundle install
+          bundle exec ruby -e 'require "rexml"; puts "rexml version: #{REXML::VERSION}"'
 
       - name: Probe Goodreads RSS feed
         run: |
@@ -77,17 +74,15 @@ jobs:
         env:
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
           GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
-          REXML_LIB: ${{ steps.rexml_pin.outputs.rexml_lib }}
         run: |
-          RUBY="ruby -I$REXML_LIB"
-          if $RUBY scripts/fetch_goodreads.rb; then
+          if bundle exec ruby scripts/fetch_goodreads.rb; then
             echo "Fetch succeeded"
             exit 0
           fi
 
           echo "Fetch failed — waiting 30 minutes before retry..."
           sleep 1800
-          $RUBY scripts/fetch_goodreads.rb
+          bundle exec ruby scripts/fetch_goodreads.rb
 
       - name: Validate feed data
         run: python3 .github/scripts/validate_feeds.py
