@@ -11,6 +11,7 @@ require "rexml/document"
 require "yaml"
 require "cgi"
 require "fileutils"
+require "date"
 
 GOODREADS_USER_ID = (ENV["GOODREADS_USER_ID"] || "").strip.empty? ? "114910493" : ENV["GOODREADS_USER_ID"]
 GOODREADS_API_KEY = (ENV["GOODREADS_API_KEY"] || "").strip.empty? ? nil : ENV["GOODREADS_API_KEY"]
@@ -43,21 +44,24 @@ def text_at(node, xpath)
   n&.text&.strip
 end
 
+def year_from_rss_date(date_str)
+  return nil if date_str.to_s.empty?
+
+  DateTime.parse(date_str).year
+rescue StandardError
+  nil
+end
+
 def parse_item(item_el)
   title = text_at(item_el, "title")
   link  = text_at(item_el, "link")
   return nil if title.to_s.empty?
 
-  # Use only "date read" for the read shelf; do not fall back to date added
-  user_read_at_str = text_at(item_el, "user_read_at")
-  year_read = nil
-  if user_read_at_str && !user_read_at_str.empty?
-    begin
-      require "date"
-      year_read = DateTime.parse(user_read_at_str).year
-    rescue StandardError
-    end
-  end
+  year_read = year_from_rss_date(text_at(item_el, "user_read_at"))
+
+  # Goodreads sometimes omits user_read_at (common for audiobook editions).
+  # On the read shelf, date added is usually when the book was marked read.
+  year_read ||= year_from_rss_date(text_at(item_el, "user_date_added"))
 
   # Goodreads RSS often has custom elements for book cover and author
   cover = text_at(item_el, "book_medium_image_url") ||
