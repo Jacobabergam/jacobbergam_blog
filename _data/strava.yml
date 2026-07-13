@@ -1,6 +1,20 @@
 ---
-fetched_at: '2026-07-12T05:24:24Z'
+fetched_at: '2026-07-13T05:33:45Z'
 activities:
+- id: 19288003448
+  name: 60 min Power Zone Ride with Matt Wilpers
+  type: Ride
+  sport_type: Ride
+  start_date: '2026-07-12T21:19:03Z'
+  distance_km: 27.04
+  moving_time_minutes: 60.0
+  elapsed_time_minutes: 60.0
+  average_speed_kph: 27.04
+  max_speed_kph: 36.36
+  total_elevation_gain_m: 0.0
+  url: https://www.strava.com/activities/19288003448
+  device_name: Peloton Bike
+  brand: peloton
 - id: 19168695366
   name: Friday Lunch Run
   type: Run
@@ -212,78 +226,3 @@ activities:
     stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   polyline: ybhqEbr}yU`HBNJx^qIT}@JaAYuDBqA`@}B\s@n@c@J@~@Kd@Hh@Z^^f@Pv@BTEHa@CmABqBBu@GqABa@Ei@Bu@AgDBUEaD@a@FINBZGd@Dz@ERLL?BKDCPFbA?HE^Dl@EdA?\DfB?XCDIFHTJ@CEEv@BPGX?LDDLC@CG`@@b@Ib@@b@GRDPC|ABr@QDORC`@YjA_@l@?^D`@L`@TZb@r@j@t@bAbA~ANHb@x@R`AF@@FIbBEJSfAKDKAc@UIOLy@Re@VeAPYD[Z[J]ZUd@_AZc@DUt@iABMd@o@FOIOZEP[TUb@o@f@g@h@y@^[v@eAhAqAv@m@X]`@Yn@gAp@w@^{@NSb@{@DQVY^{@bAgBb@aA^m@n@wAjAwBh@oANm@Xi@z@uBn@uAbA_DHKn@mBHg@HCv@uB^i@DMrAmBNKb@_ANIBILMZm@LMNc@T_@l@_BB]Tu@@c@HQB{@DUDaCDKHEZLFERn@n@f@tA`@rCjAV?HP~@VtB|@~@t@LAFLz@t@GAGOe@YUWwAu@wAm@I@AGkBq@qCkAwAc@_@WKSIa@WAKKMBIp@@ZKfB@LIp@k@xCa@bAa@h@]t@i@p@m@jAyAnBa@t@CNIDYf@u@jBI`@e@vAm@bBW|@OVMb@_AhBW|@QZm@~AeBnDE@[r@y@tAM^]j@q@xAOP_@x@UT]j@e@dAcA|AWTk@r@kBjBUP{@bACJ_Av@o@z@cChDM`@MLi@jAM??Jk@bAERc@d@Ub@YZEXO\Mp@O^QhADHf@NHAFIR{@BW@gAIu@]w@]g@KCBAACUSCMS_@WWq@aA}AwAQK[Ea@OeAFmAd@_@RELm@P[@i@EwBBSGKDGN?K@BeACQEiAD_@?y@Gm@FiACk@Bc@G{A@iAD_AIcBFCH?l@CFDbBEp@DTEbDBTCj@Dn@C^?xB@RCD@rABPAr@KHo@D{@WWUe@MQUaAMm@H{@j@i@`AEXIT?NINMbA?x@LjAAVHhAInAK\[n@s@t@_@JM?y@Gm@NCP?bCQn@KJ}Bd@a@@oACsA?c@D_BAq@J}@K[Bo@Ek@@SFGI_AIWDw@?EEWDi@EqAB
   device_name: Runna
-- id: 17654381755
-  name: Race day
-  type: Run
-  sport_type: Run
-  start_date: '2026-03-08T14:15:45Z'
-  distance_km: 40.64
-  moving_time_minutes: 291.5
-  elapsed_time_minutes: 314.0
-  average_speed_kph: 8.37
-  max_speed_kph: 19.95
-  total_elevation_gain_m: 290.4
-  url: https://www.strava.com/activities/17654381755
-  svg_map: <svg viewBox="0 0 110.0 37.75" xmlns="http://www.w3.org/2000/svg" class="strava-route"><path
-    d="M 102.68 19.05 L 102.62 19.29 L 102.56 19.65 L 102.34 19.83 L 102.23 19.87
-    L 101.21 20.03 L 100.77 20.01 L 99.21 20.01 L 99.28 20.13 L 99.33 20.37 L 99.37
-    21.03 L 99.36 21.54 L 99.45 22.05 L 99.69 22.95 L 99.89 23.61 L 100.06 23.83 L
-    100.21 23.95 L 101.13 24.93 L 101.43 25.19 L 101.51 25.19 L 101.54 25.32 L 101.69
-    25.44 L 101.89 25.7 L 102.26 26.06 L 103.15 26.63 L 103.62 26.96 L 103.77 26.71
-    L 104.1 25.86 L 104.45 25.18 L 104.49 25.15 L 105.0 25.38 L 104.92 25.66 L 104.78
-    25.95 L 104.35 27.09 L 104.29 27.16 L 103.94 27.23 L 103.8 27.37 L 103.11 28.24
-    L 102.66 28.87 L 102.66 28.92 L 102.44 29.15 L 101.95 29.81 L 101.93 29.9 L 102.0
-    30.01 L 102.59 30.54 L 102.66 30.63 L 102.66 30.71 L 102.35 31.16 L 102.01 31.76
-    L 101.72 32.16 L 101.45 32.51 L 101.13 32.75 L 100.91 32.5 L 100.76 32.37 L 101.11
-    31.88 L 101.2 31.7 L 101.2 31.62 L 100.97 31.45 L 100.86 31.41 L 100.77 31.26
-    L 100.61 31.16 L 100.59 31.08 L 100.42 31.0 L 100.17 30.72 L 99.95 30.56 L 100.12
-    30.24 L 100.42 29.85 L 100.88 29.27 L 100.86 29.18 L 100.71 29.08 L 100.61 28.93
-    L 100.23 28.67 L 100.08 28.51 L 100.22 28.13 L 100.94 27.23 L 100.74 27.05 L 100.3
-    26.54 L 100.21 26.5 L 100.22 26.46 L 100.01 26.23 L 99.83 26.08 L 99.59 25.72
-    L 99.48 25.47 L 99.34 25.38 L 99.09 25.02 L 98.91 24.64 L 98.71 24.35 L 98.19
-    23.68 L 97.7 23.12 L 97.59 23.04 L 97.58 22.91 L 97.72 22.59 L 97.7 22.51 L 96.1
-    21.66 L 94.94 21.03 L 94.72 20.87 L 94.71 20.46 L 94.61 20.19 L 94.62 20.14 L
-    94.6 20.16 L 94.62 20.15 L 94.57 20.13 L 94.55 20.14 L 94.57 20.15 L 94.59 20.07
-    L 94.52 19.66 L 94.56 18.69 L 94.64 18.12 L 94.54 17.26 L 94.4 17.25 L 93.31 17.45
-    L 93.12 17.43 L 92.85 17.29 L 92.74 17.13 L 92.55 16.99 L 92.14 16.77 L 91.2 16.14
-    L 90.52 15.37 L 89.77 14.76 L 89.39 14.33 L 89.0 13.38 L 88.78 12.74 L 88.47 12.08
-    L 88.2 11.35 L 88.11 11.14 L 87.94 10.9 L 87.74 10.76 L 87.39 10.6 L 87.25 10.48
-    L 86.95 10.13 L 86.73 9.79 L 85.11 8.1 L 85.03 8.04 L 85.04 8.0 L 84.36 7.29 L
-    83.55 6.62 L 83.25 6.43 L 83.18 6.34 L 82.7 5.93 L 82.55 5.86 L 82.5 5.88 L 82.42
-    5.75 L 82.04 5.42 L 81.53 5.06 L 81.32 5.02 L 80.42 5.01 L 78.89 5.01 L 78.66
-    5.04 L 78.01 5.01 L 75.86 5.03 L 75.52 5.0 L 74.86 5.01 L 74.32 5.04 L 73.96 5.01
-    L 73.92 5.04 L 72.33 5.03 L 72.02 5.06 L 69.74 5.06 L 68.89 5.05 L 68.84 5.01
-    L 59.65 6.95 L 57.6 6.95 L 57.02 6.93 L 56.66 6.88 L 55.23 6.95 L 53.32 6.92 L
-    52.67 6.94 L 52.22 6.94 L 51.67 6.93 L 51.42 6.89 L 51.29 6.89 L 50.78 6.97 L
-    49.75 6.97 L 49.49 7.11 L 49.04 7.48 L 48.31 7.88 L 48.0 8.16 L 47.82 8.29 L 47.22
-    8.51 L 46.84 8.57 L 46.14 8.78 L 45.35 9.44 L 45.07 9.63 L 44.68 9.8 L 44.31 10.04
-    L 43.99 10.21 L 43.72 10.28 L 43.22 10.64 L 42.94 10.7 L 42.48 10.7 L 42.31 10.74
-    L 42.23 11.45 L 42.23 12.28 L 42.32 12.57 L 42.8 13.51 L 42.82 13.62 L 42.73 13.72
-    L 42.13 14.23 L 40.99 15.1 L 40.56 15.49 L 40.51 15.57 L 40.49 17.34 L 40.51 17.93
-    L 40.48 18.63 L 40.51 18.9 L 40.47 19.24 L 40.48 20.14 L 40.13 20.17 L 38.52 20.17
-    L 38.17 20.19 L 37.91 20.15 L 37.53 20.18 L 36.75 20.18 L 36.4 20.26 L 35.65 20.24
-    L 35.38 20.27 L 35.17 20.32 L 34.97 20.42 L 34.47 20.78 L 34.37 20.89 L 34.36
-    20.94 L 34.96 21.7 L 35.12 21.94 L 35.58 22.49 L 35.67 22.55 L 35.69 22.62 L 35.66
-    22.67 L 34.97 22.78 L 34.9 22.76 L 34.81 22.75 L 34.56 22.79 L 34.33 22.74 L 33.56
-    22.77 L 32.99 22.75 L 32.63 22.78 L 32.52 22.75 L 32.15 22.78 L 32.0 22.96 L 31.85
-    22.99 L 31.58 23.17 L 31.46 23.31 L 30.38 24.2 L 30.26 24.27 L 29.91 24.34 L 29.38
-    24.72 L 28.82 25.2 L 28.54 25.39 L 27.46 26.38 L 26.32 27.27 L 24.77 28.59 L 24.56
-    28.72 L 23.19 29.89 L 22.81 30.16 L 22.49 30.45 L 21.63 31.13 L 21.36 31.25 L
-    19.29 31.97 L 17.7 32.48 L 17.48 32.54 L 17.41 32.53 L 17.16 32.24 L 16.44 31.18
-    L 16.31 31.04 L 16.24 30.87 L 15.36 29.67 L 15.0 29.14 L 14.43 28.39 L 14.35 28.36
-    L 14.2 28.41 L 14.1 28.48 L 14.06 28.63 L 13.94 28.6 L 13.55 28.84 L 12.62 29.15
-    L 12.17 29.34 L 11.94 29.47 L 11.75 29.66 L 11.6 29.86 L 11.48 30.17 L 11.39 30.6
-    L 11.28 30.79 L 11.18 30.83 L 11.06 30.79 L 10.76 30.45 L 10.1 29.52 L 10.0 29.46
-    L 9.57 29.4 L 9.14 29.37 L 8.48 29.5 L 7.32 29.81 L 7.21 29.8 L 7.13 29.86 L 7.04
-    29.86 L 7.0 29.89 L 5.53 30.21 L 5.11 30.34 L 5.0 30.42 L 5.03 30.43 L 5.42 30.33
-    L 5.65 30.31 L 6.37 30.09 L 6.74 30.03 L 8.77 29.51 L 9.27 29.45 L 9.66 29.47
-    L 10.09 29.58 L 10.91 30.7 L 11.09 30.91 L 11.16 30.92 L 11.37 30.75 L 11.55 30.11
-    L 11.68 29.86 L 12.0 29.52 L 12.15 29.42 L 12.42 29.29 L 13.59 28.87 L 14.02 28.63
-    L 14.13 28.6 L 14.14 28.52 L 14.38 28.41 L 14.51 28.54 L 16.04 30.7 L 16.23 30.93
-    L 16.45 31.27 L 16.44 31.31 L 16.53 31.37 L 17.06 32.13 L 17.32 32.47 L 17.41
-    32.57 L 17.56 32.58 L 20.15 31.71 L 20.47 31.64 L 21.31 31.34 L 21.62 31.2 L 23.21
-    29.96 L 23.8 29.42 L 25.62 27.92 L 26.34 27.36 L 26.44 27.25 L 26.56 27.18 L 27.83
-    26.18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"
-    stroke-linejoin="round"/></svg>
-  polyline: _c~nE~fupU~AZlCXdAfBNr@z@`NGrE@`Vl@_@~AW`GUfEBdEg@`JqBbG_BrAoAn@eA~JqLdBmC@i@n@Mn@cAdB_BjCoD`FcL~B}E_BeAmI_DkGaDKUxAoFlBb@pBdA~LfEZ^Z`Dr@`AvIhIrFrET@xAfBbGbF^Jl@a@lEuG`@a@^AnDtCjF|C|ChChC`CzAvCaBfBs@dA}DeDeAk@a@@_AjBOt@y@f@g@hA]Ja@pAmBtB{@dB}BqAyCiCcF}Ea@Hg@hA{@n@cBnD}@hAuCaAaJsIeA|AgEnEMf@OAyA~A}@vAiCnBcBt@c@~@mCxBqCpAqB|AeGvF{EfFa@r@q@D{BaAa@FiItVwF`P_AfB_DDgBp@SEFHCIITDHBIa@G}C`@_KU}Ee@oIn@E`AnAdOIzAu@zB{@t@w@vAuAdEwFzLmH~HoF`JeDtDuJxD{FdB_GrCaH|BqAj@{AnAw@|A}@bDm@dAkClCaCfBySzVUf@OCwG~HeG`KgAjCe@`@_DbF[dAFTq@d@aCrDkCrFQ`BAfL?rUHlBItHFv^K`D@xHJ|FIhDHRCnVJrC@t`@ErKMRvV|fC@j]GrGSfDXfTKf[FpH?tECbGOrB@~@^pF?bNr@|BrCpEzCzIlBpCp@tAtAzGVrDrAhI~FtJjAdCbAvD|AlD~@xC\|BhClFV`C@|ELjAvGd@bI@rBk@nJcFf@Eh@h@dExGvI|OvCjE\TvTJbFMtGPfBObCR`JCLdDAxVH`DQzBLtD?nJZfDE~IJ~BR`Bd@~AlCjFj@n@RBfHyG|AkAvEyETk@ZIRPh@bIGb@Ah@LrBSjBLlJIjGJjDKt@JjDhAhAHdAfA|Br@x@|I|NZz@XbDtCzFzDdGhAdCbK`O|IxOdOzUr@dBhMfSfBpDrBvChGtKn@~BvGr]hEnVVhBC`@sBtB}KtIw@z@aA`@wM`LmEfDgHnGKb@RdA\l@v@TIx@zAvDzBvLhArEr@lBfAxAnAbAvBz@fDf@lAr@Np@Qv@cClCmJtHUn@YlEIhEp@vHxBfPAr@T`@?l@JNzBxTp@bE^t@DMg@wDGmBuAuIUmDkE_]YkFFwDj@kEvLcKnAuADa@aAcB{FuAcB}@cCwCg@cAq@_CcDkP_BgEKs@[Ek@sBp@y@nYsUxA{AdCgBNBRi@jHyFdC{Bd@i@BiAsIie@]uCsBkKw@sCeNmVqEwGkQ_Z{EsIk@m@[{@eKwQ
-  device_name: Apple Watch Ultra 3
