@@ -1,6 +1,20 @@
 ---
-fetched_at: '2026-07-28T05:11:37Z'
+fetched_at: '2026-07-29T05:18:34Z'
 activities:
+- id: 19509657245
+  name: 30 min HIIT & Hills Ride with Olivia Amato
+  type: Ride
+  sport_type: Ride
+  start_date: '2026-07-29T04:06:16Z'
+  distance_km: 13.87
+  moving_time_minutes: 30.0
+  elapsed_time_minutes: 30.0
+  average_speed_kph: 27.75
+  max_speed_kph: 44.21
+  total_elevation_gain_m: 0.0
+  url: https://www.strava.com/activities/19509657245
+  device_name: Peloton Bike
+  brand: peloton
 - id: 19383574171
   name: 30 min Wrynose Pass Ride
   type: Ride
@@ -143,19 +157,5 @@ activities:
   max_speed_kph: 34.06
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/18952755086
-  device_name: Peloton Bike
-  brand: peloton
-- id: 18654423393
-  name: 30 min HIIT & Hills Ride with Alex Toussaint
-  type: Ride
-  sport_type: Ride
-  start_date: '2026-05-25T22:23:50Z'
-  distance_km: 13.53
-  moving_time_minutes: 30.0
-  elapsed_time_minutes: 30.0
-  average_speed_kph: 27.05
-  max_speed_kph: 37.44
-  total_elevation_gain_m: 0.0
-  url: https://www.strava.com/activities/18654423393
   device_name: Peloton Bike
   brand: peloton
