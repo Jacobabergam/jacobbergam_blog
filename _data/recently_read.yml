@@ -36,6 +36,10 @@ books:
   link: https://www.goodreads.com/review/show/7574491875?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1525464420l/29226553.jpg
   year_read: 2026
+- title: A Gentleman in Moscow
+  link: https://www.goodreads.com/review/show/8888194784?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718915012l/34066798.jpg
+  year_read: 2026
 - title: 'Empire of the Vampire (Empire of the Vampire, #1)'
   link: https://www.goodreads.com/review/show/8822958613?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612450626l/56269205.jpg
