@@ -1,6 +1,20 @@
 ---
-fetched_at: '2026-09-01T07:10:50Z'
+fetched_at: '2026-09-02T06:45:51Z'
 activities:
+- id: 19999972598
+  name: 20 min HIIT & Hills Ride with Camila Ramón
+  type: Ride
+  sport_type: Ride
+  start_date: '2026-09-02T03:26:20Z'
+  distance_km: 7.74
+  moving_time_minutes: 32.6
+  elapsed_time_minutes: 32.6
+  average_speed_kph: 14.24
+  max_speed_kph: 41.69
+  total_elevation_gain_m: 0.0
+  url: https://www.strava.com/activities/19999972598
+  device_name: Peloton Bike
+  brand: peloton
 - id: 19856375378
   name: 30 min Himalaya Ride with Sam Yo
   type: Ride
@@ -73,19 +87,5 @@ activities:
   max_speed_kph: 44.21
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/19509657245
-  device_name: Peloton Bike
-  brand: peloton
-- id: 19383574171
-  name: 30 min Wrynose Pass Ride
-  type: Ride
-  sport_type: Ride
-  start_date: '2026-07-20T01:42:22Z'
-  distance_km: 14.42
-  moving_time_minutes: 30.0
-  elapsed_time_minutes: 30.0
-  average_speed_kph: 28.84
-  max_speed_kph: 31.82
-  total_elevation_gain_m: 0.0
-  url: https://www.strava.com/activities/19383574171
   device_name: Peloton Bike
   brand: peloton
