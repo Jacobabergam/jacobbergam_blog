@@ -36,6 +36,14 @@ books:
   link: https://www.goodreads.com/review/show/7574491875?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1525464420l/29226553.jpg
   year_read: 2026
+- title: 'Light Bringer (Red Rising Saga, #6)'
+  link: https://www.goodreads.com/review/show/7574491897?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667655583l/29227774.jpg
+  year_read: 2026
+- title: Sunrise on the Reaping (The Hunger Games)
+  link: https://www.goodreads.com/review/show/8937327385?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246.jpg
+  year_read: 2026
 - title: A Gentleman in Moscow
   link: https://www.goodreads.com/review/show/8888194784?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718915012l/34066798.jpg
@@ -52,14 +60,6 @@ books:
   link: https://www.goodreads.com/review/show/8822959937?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1743484777l/222376766.jpg
   year_read: 2026
-- title: The Fourth Option
-  link: https://www.goodreads.com/review/show/8689138571?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1771232491l/242438104.jpg
-  year_read: 2026
-- title: 'Light Bringer (Red Rising Saga, #6)'
-  link: https://www.goodreads.com/review/show/7574491897?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667655583l/29227774.jpg
-  year_read: 2026
 - title: 'Breakneck: China''s Quest to Engineer the Future'
   link: https://www.goodreads.com/review/show/8427886978?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1765233885l/223736214.jpg
@@ -75,6 +75,10 @@ books:
 - title: Atlas Shrugged
   link: https://www.goodreads.com/review/show/4219386178?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1405868167l/662.jpg
+  year_read: 2026
+- title: The Fourth Option
+  link: https://www.goodreads.com/review/show/8689138571?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1771232491l/242438104.jpg
   year_read: 2026
 - title: 'When the Heavens Went on Sale: The Misfits and Geniuses Racing to Put Space
     Within Reach'
