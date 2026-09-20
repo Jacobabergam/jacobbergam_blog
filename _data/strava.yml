@@ -1,6 +1,20 @@
 ---
-fetched_at: '2026-09-19T06:59:04Z'
+fetched_at: '2026-09-20T07:24:06Z'
 activities:
+- id: 20245467564
+  name: Peloton - 46 min Just Ride
+  type: Ride
+  sport_type: Ride
+  start_date: '2026-09-19T18:45:19Z'
+  distance_km: 20.62
+  moving_time_minutes: 46.0
+  elapsed_time_minutes: 46.0
+  average_speed_kph: 26.88
+  max_speed_kph: 38.09
+  total_elevation_gain_m: 0.0
+  url: https://www.strava.com/activities/20245467564
+  device_name: Peloton Bike
+  brand: peloton
 - id: 20147268936
   name: Peloton - 42 min Just Ride
   type: Ride
@@ -70,18 +84,4 @@ activities:
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/19856080050
   device_name: Peloton Bike
-  brand: peloton
-- id: 19855811785
-  name: 30 min 90s Ride with Olivia Amato
-  type: Ride
-  sport_type: Ride
-  start_date: '2026-08-22T20:13:07Z'
-  distance_km: 0.0
-  moving_time_minutes: 30.0
-  elapsed_time_minutes: 30.0
-  average_speed_kph: 0.0
-  max_speed_kph: 0.0
-  total_elevation_gain_m: 0.0
-  url: https://www.strava.com/activities/19855811785
-  device_name: Peloton
   brand: peloton
