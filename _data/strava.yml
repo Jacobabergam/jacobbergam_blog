@@ -1,6 +1,20 @@
 ---
-fetched_at: '2026-09-22T07:14:19Z'
+fetched_at: '2026-09-23T07:16:35Z'
 activities:
+- id: 20291580649
+  name: Peloton - 61 min Entertainment Ride
+  type: Ride
+  sport_type: Ride
+  start_date: '2026-09-23T04:08:44Z'
+  distance_km: 27.88
+  moving_time_minutes: 61.5
+  elapsed_time_minutes: 61.5
+  average_speed_kph: 27.21
+  max_speed_kph: 30.46
+  total_elevation_gain_m: 0.0
+  url: https://www.strava.com/activities/20291580649
+  device_name: Peloton Bike
+  brand: peloton
 - id: 20245467564
   name: Peloton - 46 min Just Ride
   type: Ride
@@ -69,19 +83,5 @@ activities:
   max_speed_kph: 8.28
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/19856375378
-  device_name: Peloton Bike
-  brand: peloton
-- id: 19856080050
-  name: 30 min Himalaya Ride with Sam Yo
-  type: Ride
-  sport_type: Ride
-  start_date: '2026-08-22T20:22:58Z'
-  distance_km: 0.0
-  moving_time_minutes: 0.9
-  elapsed_time_minutes: 0.9
-  average_speed_kph: 0.0
-  max_speed_kph: 0.0
-  total_elevation_gain_m: 0.0
-  url: https://www.strava.com/activities/19856080050
   device_name: Peloton Bike
   brand: peloton
