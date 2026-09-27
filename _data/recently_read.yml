@@ -36,6 +36,14 @@ books:
   link: https://www.goodreads.com/review/show/7574491897?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667655583l/29227774.jpg
   year_read: 2026
+- title: 'Breakneck: China''s Quest to Engineer the Future'
+  link: https://www.goodreads.com/review/show/8427886978?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1765233885l/223736214.jpg
+  year_read: 2026
+- title: Greenlights
+  link: https://www.goodreads.com/review/show/8976153659?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1604281659l/52838315.jpg
+  year_read: 2026
 - title: Sunrise on the Reaping (The Hunger Games)
   link: https://www.goodreads.com/review/show/8937327385?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246.jpg
@@ -71,10 +79,6 @@ books:
 - title: Project Hail Mary
   link: https://www.goodreads.com/review/show/4457338916?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1764703833l/54493401.jpg
-  year_read: 2026
-- title: 'Breakneck: China''s Quest to Engineer the Future'
-  link: https://www.goodreads.com/review/show/8427886978?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1765233885l/223736214.jpg
   year_read: 2026
 - title: 'The Intentional Father: A Practical Guide to Raise Sons of Courage and Character
     | Parenting Boys for a Dad to Be, Grandpa, or Husband | Gift for Christian Men'
