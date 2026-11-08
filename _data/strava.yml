@@ -1,6 +1,19 @@
 ---
-fetched_at: '2026-11-07T08:15:32Z'
+fetched_at: '2026-11-08T08:30:38Z'
 activities:
+- id: 20901229860
+  name: Over and Unders 400m
+  type: Run
+  sport_type: Run
+  start_date: '2026-11-07T23:20:04Z'
+  distance_km: 0.01
+  moving_time_minutes: 1.2
+  elapsed_time_minutes: 1.8
+  average_speed_kph: 0.3
+  max_speed_kph: 1.8
+  total_elevation_gain_m: 0.0
+  url: https://www.strava.com/activities/20901229860
+  device_name: Runna
 - id: 20461478225
   name: Morning Ride
   type: Ride
@@ -132,19 +145,5 @@ activities:
   max_speed_kph: 38.95
   total_elevation_gain_m: 0.0
   url: https://www.strava.com/activities/20147268936
-  device_name: Peloton Bike
-  brand: peloton
-- id: 20097346350
-  name: Peloton - 40 min Just Ride
-  type: Ride
-  sport_type: Ride
-  start_date: '2026-09-09T02:32:43Z'
-  distance_km: 18.53
-  moving_time_minutes: 40.2
-  elapsed_time_minutes: 40.2
-  average_speed_kph: 27.64
-  max_speed_kph: 33.26
-  total_elevation_gain_m: 0.0
-  url: https://www.strava.com/activities/20097346350
   device_name: Peloton Bike
   brand: peloton
