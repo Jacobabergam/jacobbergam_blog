@@ -33,56 +33,13 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      # rexml 3.4.3+ introduced stricter parsing that fails on Goodreads' RSS.
-      # Ruby 3.3 ships 3.4.4 as a default gem that can't be overridden.
-      # Use Bundler with a Gemfile that pins rexml 3.4.2.
-      - name: Pin rexml via Bundler
-        run: |
-          bundle config --local path vendor/bundle
-          bundle install
-          bundle exec ruby -e 'require "rexml"; puts "rexml version: #{REXML::VERSION}"'
-
-      - name: Probe Goodreads RSS feed
-        run: |
-          USER_ID="${GOODREADS_USER_ID:-114910493}"
-          KEY_PARAM=""
-          if [ -n "$GOODREADS_API_KEY" ]; then
-            KEY_PARAM="&key=$GOODREADS_API_KEY"
-          fi
-          URL="https://www.goodreads.com/review/list_rss/${USER_ID}?shelf=read&sort=date_read&per_page=1${KEY_PARAM}"
-          echo "Probing: $URL"
-          HTTP_CODE=$(curl -s -o /tmp/goodreads_rss_probe.xml -w "%{http_code}" "$URL")
-          echo "HTTP status: $HTTP_CODE"
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "FAIL: Goodreads RSS returned HTTP $HTTP_CODE (expected 200)"
-            exit 1
-          fi
-          if head -1 /tmp/goodreads_rss_probe.xml | grep -qi '<!DOCTYPE\|<html'; then
-            echo "FAIL: Goodreads returned HTML instead of RSS"
-            exit 1
-          fi
-          if ! grep -q '<item>' /tmp/goodreads_rss_probe.xml; then
-            echo "FAIL: Goodreads RSS has no <item> elements"
-            exit 1
-          fi
-          echo "Goodreads RSS probe OK"
+      # Goodreads retired the shelf RSS feeds in late October 2026 (404 for
+      # every user). The script now reads the public shelf widget and merges
+      # it into _data/recently_read.yml; it retries on its own.
+      - name: Fetch Goodreads Read List
         env:
           GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
-          GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
-
-      - name: Fetch Goodreads Read List (with retry)
-        env:
-          GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
-          GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
-        run: |
-          if bundle exec ruby scripts/fetch_goodreads.rb; then
-            echo "Fetch succeeded"
-            exit 0
-          fi
-
-          echo "Fetch failed — waiting 30 minutes before retry..."
-          sleep 1800
-          bundle exec ruby scripts/fetch_goodreads.rb
+        run: ruby scripts/fetch_goodreads.rb
 
       - name: Validate feed data
         run: python3 .github/scripts/validate_feeds.py
@@ -108,7 +65,7 @@ jobs:
           script: |
             const date = new Date().toISOString().split('T')[0];
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            const body = `**Goodreads fetch failed** on ${date}\n\nWorkflow run: ${runUrl}\n\n<details><summary>Details</summary>\n\nThe Goodreads RSS probe, fetch, or validation failed. Check the workflow logs for specifics.\n\n</details>`;
+            const body = `**Goodreads fetch failed** on ${date}\n\nWorkflow run: ${runUrl}\n\n<details><summary>Details</summary>\n\nThe Goodreads shelf-widget fetch or validation failed. Check the workflow logs for specifics.\n\n</details>`;
 
             const existing = await github.rest.issues.listForRepo({
               ...context.repo,

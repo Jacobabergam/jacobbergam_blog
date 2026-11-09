@@ -1,5 +1,90 @@
 ---
 books:
+- title: Greenlights
+  author: Matthew McConaughey
+  link: https://www.goodreads.com/review/show/8976153659?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1604281659l/52838315.jpg
+  year_read: 2026
+- title: Sunrise on the Reaping (The Hunger Games)
+  author: Suzanne Collins
+  link: https://www.goodreads.com/review/show/8937327385?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246.jpg
+  year_read: 2026
+- title: A Gentleman in Moscow
+  author: Amor Towles
+  link: https://www.goodreads.com/review/show/8888194784?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718915012l/34066798.jpg
+  year_read: 2026
+- title: 'Empire of the Vampire (Empire of the Vampire, #1)'
+  author: Jay Kristoff
+  link: https://www.goodreads.com/review/show/8822958613?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612450626l/56269205.jpg
+  year_read: 2026
+- title: 'Empire of the Damned (Empire of the Vampire, #2)'
+  author: Jay Kristoff
+  link: https://www.goodreads.com/review/show/8822959342?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1687870963l/126918599.jpg
+  year_read: 2026
+- title: 'Empire of the Dawn (Empire of the Vampire, #3)'
+  author: Jay Kristoff
+  link: https://www.goodreads.com/review/show/8822959937?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1743484777l/222376766.jpg
+  year_read: 2026
+- title: The Fourth Option
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/8689138571?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1771232491l/242438104.jpg
+  year_read: 2026
+- title: Atlas Shrugged
+  author: Ayn Rand
+  link: https://www.goodreads.com/review/show/4219386178?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1405868167l/662.jpg
+  year_read: 2026
+- title: 'The Player of Games (Culture, #2)'
+  author: Iain M. Banks
+  link: https://www.goodreads.com/review/show/8525159355?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386922873l/18630.jpg
+  year_read: 2026
+- title: Project Hail Mary
+  author: Andy Weir
+  link: https://www.goodreads.com/review/show/4457338916?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1764703833l/54493401.jpg
+  year_read: 2026
+- title: 'Breakneck: China''s Quest to Engineer the Future'
+  author: Dan  Wang
+  link: https://www.goodreads.com/review/show/8427886978?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1765233885l/223736214.jpg
+  year_read: 2026
+- title: 'Light Bringer (Red Rising Saga, #6)'
+  author: Pierce Brown
+  link: https://www.goodreads.com/review/show/7574491897?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667655583l/29227774.jpg
+  year_read: 2026
+- title: 'Dark Age (Red Rising Saga, #5)'
+  author: Pierce Brown
+  link: https://www.goodreads.com/review/show/7574491875?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1525464420l/29226553.jpg
+  year_read: 2026
+- title: 'Iron Gold (Red Rising Saga, #4)'
+  author: Pierce Brown
+  link: https://www.goodreads.com/review/show/7574491822?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1716325988l/33257757.jpg
+  year_read: 2026
+- title: 'Morning Star (Red Rising Saga, #3)'
+  author: Pierce Brown
+  link: https://www.goodreads.com/review/show/7574491720?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461354277l/18966806.jpg
+  year_read: 2026
+- title: 'Red Rising (Red Rising Saga, #1)'
+  author: Pierce Brown
+  link: https://www.goodreads.com/review/show/7574491597?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461354651l/15839976.jpg
+  year_read: 2026
+- title: 'Golden Son (Red Rising Saga, #2)'
+  author: Pierce Brown
+  link: https://www.goodreads.com/review/show/7574491681?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1394684475l/18966819.jpg
+  year_read: 2026
 - title: Harry Potter and the Half-Blood Prince (Full-Cast Edition)
   link: https://www.goodreads.com/review/show/8718706640?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1776864305l/251336846.jpg
@@ -12,345 +97,431 @@ books:
   link: https://www.goodreads.com/review/show/8718707173?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1781804239l/252679960.jpg
   year_read: 2026
-- title: 'Golden Son (Red Rising Saga, #2)'
-  link: https://www.goodreads.com/review/show/7574491681?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1394684475l/18966819.jpg
-  year_read: 2026
-- title: 'Red Rising (Red Rising Saga, #1)'
-  link: https://www.goodreads.com/review/show/7574491597?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461354651l/15839976.jpg
-  year_read: 2026
-- title: 'Morning Star (Red Rising Saga, #3)'
-  link: https://www.goodreads.com/review/show/7574491720?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461354277l/18966806.jpg
-  year_read: 2026
-- title: 'Iron Gold (Red Rising Saga, #4)'
-  link: https://www.goodreads.com/review/show/7574491822?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1716325988l/33257757.jpg
-  year_read: 2026
-- title: 'Dark Age (Red Rising Saga, #5)'
-  link: https://www.goodreads.com/review/show/7574491875?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1525464420l/29226553.jpg
-  year_read: 2026
-- title: 'Light Bringer (Red Rising Saga, #6)'
-  link: https://www.goodreads.com/review/show/7574491897?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667655583l/29227774.jpg
-  year_read: 2026
-- title: 'Breakneck: China''s Quest to Engineer the Future'
-  link: https://www.goodreads.com/review/show/8427886978?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1765233885l/223736214.jpg
-  year_read: 2026
-- title: Greenlights
-  link: https://www.goodreads.com/review/show/8976153659?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1604281659l/52838315.jpg
-  year_read: 2026
-- title: Sunrise on the Reaping (The Hunger Games)
-  link: https://www.goodreads.com/review/show/8937327385?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246.jpg
-  year_read: 2026
-- title: A Gentleman in Moscow
-  link: https://www.goodreads.com/review/show/8888194784?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718915012l/34066798.jpg
-  year_read: 2026
-- title: 'Empire of the Vampire (Empire of the Vampire, #1)'
-  link: https://www.goodreads.com/review/show/8822958613?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612450626l/56269205.jpg
-  year_read: 2026
-- title: 'Empire of the Damned (Empire of the Vampire, #2)'
-  link: https://www.goodreads.com/review/show/8822959342?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1687870963l/126918599.jpg
-  year_read: 2026
-- title: 'Empire of the Dawn (Empire of the Vampire, #3)'
-  link: https://www.goodreads.com/review/show/8822959937?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1743484777l/222376766.jpg
-  year_read: 2026
-- title: The Fourth Option
-  link: https://www.goodreads.com/review/show/8689138571?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1771232491l/242438104.jpg
-  year_read: 2026
-- title: Atlas Shrugged
-  link: https://www.goodreads.com/review/show/4219386178?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1405868167l/662.jpg
-  year_read: 2026
-- title: 'The Player of Games (Culture, #2)'
-  link: https://www.goodreads.com/review/show/8525159355?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386922873l/18630.jpg
-  year_read: 2026
-- title: Project Hail Mary
-  link: https://www.goodreads.com/review/show/4457338916?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1764703833l/54493401.jpg
-  year_read: 2026
-- title: 'The Intentional Father: A Practical Guide to Raise Sons of Courage and Character
-    | Parenting Boys for a Dad to Be, Grandpa, or Husband | Gift for Christian Men'
-  link: https://www.goodreads.com/review/show/6065468666?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1614354099l/55782918.jpg
-  year_read: 2025
-- title: 'Hillbilly Elegy: A Memoir of a Family and Culture in Crisis'
-  link: https://www.goodreads.com/review/show/7199515000?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1463569814l/27161156.jpg
-  year_read: 2025
-- title: The Fountainhead
-  link: https://www.goodreads.com/review/show/6536905407?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1491163636l/2122.jpg
-  year_read: 2025
-- title: 'The Anxious Generation: How the Great Rewiring of Childhood Caused an Epidemic
-    of Mental Illness'
-  link: https://www.goodreads.com/review/show/7327825614?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1711573377l/171681821.jpg
-  year_read: 2025
-- title: 'Tiny Humans, Big Emotions: How to Navigate Tantrums, Meltdowns, and Defiance
-    to Raise Emotionally Intelligent Children'
-  link: https://www.goodreads.com/review/show/7332769311?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1694463055l/84097626.jpg
-  year_read: 2025
-- title: 'The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the
-    1936 Berlin Olympics'
-  link: https://www.goodreads.com/review/show/7356160850?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1354683116l/16158542.jpg
-  year_read: 2025
-- title: 'The Dark Forest (Remembrance of Earth’s Past, #2)'
-  link: https://www.goodreads.com/review/show/7356162360?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1412064931l/23168817.jpg
-  year_read: 2025
-- title: 'Hearing God: Developing a Conversational Relationship with God'
-  link: https://www.goodreads.com/review/show/7370046281?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347700127l/97800.jpg
-  year_read: 2025
 - title: 'When the Heavens Went on Sale: The Misfits and Geniuses Racing to Put Space
     Within Reach'
+  author: Ashlee Vance
   link: https://www.goodreads.com/review/show/7978148928?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1675644477l/62050244.jpg
   year_read: 2025
 - title: 'Cry Havoc (Tom Reece #1)'
+  author: Jack Carr
   link: https://www.goodreads.com/review/show/8065927558?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1741199779l/219441947.jpg
   year_read: 2025
 - title: 'Family Driven Faith: Doing What It Takes to Raise Sons and Daughters Who
     walk with God'
+  author: Voddie T. Baucham Jr.
   link: https://www.goodreads.com/review/show/7744200342?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1369820299l/1048897.jpg
   year_read: 2025
 - title: 'We Who Wrestle with God: Perceptions of the Divine'
+  author: Jordan B. Peterson
   link: https://www.goodreads.com/review/show/7647353353?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1707192021l/207611500.jpg
   year_read: 2025
 - title: 'House of Huawei: The Secret History of China''s Most Powerful Company'
+  author: Eva Dou
   link: https://www.goodreads.com/review/show/7608130040?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1719031646l/214490408.jpg
   year_read: 2025
 - title: 'Death''s End (Remembrance of Earth’s Past, #3)'
+  author: Liu Cixin
   link: https://www.goodreads.com/review/show/7457400132?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1430330507l/25451264.jpg
   year_read: 2025
 - title: 'Foundation and Earth (Foundation, #5)'
+  author: Isaac Asimov
   link: https://www.goodreads.com/review/show/6142065596?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389759320l/29582.jpg
   year_read: 2025
 - title: 'Foundation''s Edge (Foundation, #4)'
+  author: Isaac Asimov
   link: https://www.goodreads.com/review/show/6142064955?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442311409l/76683.jpg
   year_read: 2025
 - title: 'Second Foundation (Foundation, #3)'
+  author: Isaac Asimov
   link: https://www.goodreads.com/review/show/6142064188?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661015922l/29580.jpg
   year_read: 2025
 - title: 'Foundation and Empire (Foundation, #2)'
+  author: Isaac Asimov
   link: https://www.goodreads.com/review/show/6142063736?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1391454612l/29581.jpg
   year_read: 2025
 - title: 'Foundation (Foundation, #1)'
+  author: Isaac Asimov
   link: https://www.goodreads.com/review/show/6142063464?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg
   year_read: 2025
 - title: The Let Them Theory
+  author: Mel Robbins
   link: https://www.goodreads.com/review/show/7392562045?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1735589383l/216351768.jpg
   year_read: 2025
+- title: 'Hearing God: Developing a Conversational Relationship with God'
+  author: Dallas Willard
+  link: https://www.goodreads.com/review/show/7370046281?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347700127l/97800.jpg
+  year_read: 2025
+- title: 'The Dark Forest (Remembrance of Earth’s Past, #2)'
+  author: Liu Cixin
+  link: https://www.goodreads.com/review/show/7356162360?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1412064931l/23168817.jpg
+  year_read: 2025
+- title: 'The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the
+    1936 Berlin Olympics'
+  author: Daniel James Brown
+  link: https://www.goodreads.com/review/show/7356160850?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1354683116l/16158542.jpg
+  year_read: 2025
+- title: 'Tiny Humans, Big Emotions: How to Navigate Tantrums, Meltdowns, and Defiance
+    to Raise Emotionally Intelligent Children'
+  author: Alyssa Blask Campbell
+  link: https://www.goodreads.com/review/show/7332769311?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1694463055l/84097626.jpg
+  year_read: 2025
+- title: 'The Anxious Generation: How the Great Rewiring of Childhood Caused an Epidemic
+    of Mental Illness'
+  author: Jonathan Haidt
+  link: https://www.goodreads.com/review/show/7327825614?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1711573377l/171681821.jpg
+  year_read: 2025
+- title: The Fountainhead
+  author: Ayn Rand
+  link: https://www.goodreads.com/review/show/6536905407?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1491163636l/2122.jpg
+  year_read: 2025
+- title: 'Hillbilly Elegy: A Memoir of a Family and Culture in Crisis'
+  author: J.D. Vance
+  link: https://www.goodreads.com/review/show/7199515000?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1463569814l/27161156.jpg
+  year_read: 2025
+- title: 'The Intentional Father: A Practical Guide to Raise Sons of Courage and Character
+    | Parenting Boys for a Dad to Be, Grandpa, or Husband | Gift for Christian Men'
+  author: Jon Tyson
+  link: https://www.goodreads.com/review/show/6065468666?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1614354099l/55782918.jpg
+  year_read: 2025
+- title: 'Red Sky Mourning (Terminal List #7)'
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/7062427024?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1699720331l/199897972.jpg
+  year_read: 2024
+- title: 'Only the Dead (Terminal List #6)'
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/7052887590?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1678845544l/62598578.jpg
+  year_read: 2024
+- title: 'In the Blood (Terminal List, #5)'
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/7046196983?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1648219126l/58438630.jpg
+  year_read: 2024
+- title: 'The Devil''s Hand (Terminal List, #4)'
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/7005229965?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1599257252l/54265145.jpg
+  year_read: 2024
+- title: 'Savage Son (Terminal List #3)'
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/7017649868?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1568697351l/49700206.jpg
+  year_read: 2024
+- title: 'True Believer (Terminal List, #2)'
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/7005229734?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1540632369l/40538564.jpg
+  year_read: 2024
+- title: 'The Terminal List (Terminal List, #1)'
+  author: Jack Carr
+  link: https://www.goodreads.com/review/show/7005228745?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520163970l/35297106.jpg
+  year_read: 2024
+- title: 'Dopamine Nation: Finding Balance in the Age of Indulgence'
+  author: Anna Lembke
+  link: https://www.goodreads.com/review/show/6981584504?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629679336l/55723020.jpg
+  year_read: 2024
+- title: 'Supercommunicators: How to Unlock the Secret Language of Connection'
+  author: Charles Duhigg
+  link: https://www.goodreads.com/review/show/6939127819?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1702893819l/157981748.jpg
+  year_read: 2024
+- title: 'Private Equity: A Memoir'
+  author: Carrie Sun
+  link: https://www.goodreads.com/review/show/6924841015?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1699477415l/195267508.jpg
+  year_read: 2024
+- title: 'Practicing the Way: Be with Jesus, Become Like Him, Do As He Did'
+  author: John Mark Comer
+  link: https://www.goodreads.com/review/show/6874640518?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697658775l/83817455.jpg
+  year_read: 2024
+- title: 'Slow Productivity: The Lost Art of Accomplishment Without Burnout'
+  author: Cal Newport
+  link: https://www.goodreads.com/review/show/6796409859?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692883158l/197773418.jpg
+  year_read: 2024
+- title: 'Red Rabbit (Jack Ryan, #2)'
+  author: Tom Clancy
+  link: https://www.goodreads.com/review/show/6142032343?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546283429l/19707.jpg
+  year_read: 2024
+- title: 'Patriot Games (Jack Ryan, #1)'
+  author: Tom Clancy
+  link: https://www.goodreads.com/review/show/6142030324?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328007145l/32682.jpg
+  year_read: 2024
+- title: 'Consider Phlebas (Culture, #1)'
+  author: Iain M. Banks
+  link: https://www.goodreads.com/review/show/6644084902?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327951890l/8935689.jpg
+  year_read: 2024
+- title: 'Rich People Problems (Crazy Rich Asians, #3)'
+  author: Kevin Kwan
+  link: https://www.goodreads.com/review/show/6599725418?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1493727003l/29864343.jpg
+  year_read: 2024
+- title: 'Crazy Rich Asians (Crazy Rich Asians, #1)'
+  author: Kevin Kwan
+  link: https://www.goodreads.com/review/show/6595469644?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1364852559l/16085481.jpg
+  year_read: 2024
+- title: 'China Rich Girlfriend (Crazy Rich Asians, #2)'
+  author: Kevin Kwan
+  link: https://www.goodreads.com/review/show/6595470127?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1419179404l/22674105.jpg
+  year_read: 2024
+- title: 'The Three-Body Problem (Remembrance of Earth’s Past, #1)'
+  author: Liu Cixin
+  link: https://www.goodreads.com/review/show/6151645999?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1415428227l/20518872.jpg
+  year_read: 2024
+- title: 'The Contrarian: Peter Thiel and the Rise of the Silicon Valley Oligarchs'
+  author: Max Chafkin
+  link: https://www.goodreads.com/review/show/6526133897?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1619577011l/57880116.jpg
+  year_read: 2024
 - title: The Old Man and the Sea
+  author: Ernest Hemingway
   link: https://www.goodreads.com/review/show/6519539413?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1329189714l/2165.jpg
   year_read: 2024
 - title: Leonardo da Vinci
+  author: Walter Isaacson
   link: https://www.goodreads.com/review/show/6511201236?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1523543570l/34684622.jpg
   year_read: 2024
 - title: 'Competing Against Time : How Time-based Competition is Reshaping Global
     Markets'
+  author: George Stalk Jr.
   link: https://www.goodreads.com/review/show/6489963174?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1400890579l/2232114.jpg
   year_read: 2024
 - title: 'The War on the West: An Instant NYT Bestselling History of the Modern World'
+  author: Douglas Murray
   link: https://www.goodreads.com/review/show/6491872674?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1639949551l/58838847.jpg
   year_read: 2024
 - title: Treasure Island
+  author: Robert Louis Stevenson
   link: https://www.goodreads.com/review/show/6467300509?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1485248909l/295.jpg
   year_read: 2024
 - title: 'Thinking In Systems: A Primer'
+  author: Donella H. Meadows
   link: https://www.goodreads.com/review/show/6427760245?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390169859l/3828902.jpg
   year_read: 2024
 - title: 'MeatEater''s American History: The Long Hunters (1761-1775)'
+  author: Steven Rinella
   link: https://www.goodreads.com/review/show/6417770167?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1705374417l/205219729.jpg
   year_read: 2024
 - title: 'The Toyota Way: 14 Management Principles from the World''s Greatest Manufacturer'
+  author: Jeffrey K. Liker
   link: https://www.goodreads.com/review/show/6393721453?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1436741874l/161789.jpg
   year_read: 2024
 - title: 'Nonviolent Communication: A Language of Life'
+  author: Marshall B. Rosenberg
   link: https://www.goodreads.com/review/show/6393723856?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386925124l/71730.jpg
   year_read: 2024
 - title: 'Life Force: How New Breakthroughs in Precision Medicine Can Transform the
     Quality of Your Life  Those You Love'
+  author: Anthony Robbins
   link: https://www.goodreads.com/review/show/6277408262?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1644466199l/59530244.jpg
   year_read: 2024
 - title: 'Fossil Future: Why Global Human Flourishing Requires More Oil, Coal, and
     Natural Gas--Not Less'
+  author: Alex      Epstein
   link: https://www.goodreads.com/review/show/6338755450?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1635858433l/58502699.jpg
   year_read: 2024
 - title: 'Murtagh (The Inheritance Cycle, #5)'
+  author: Christopher Paolini
   link: https://www.goodreads.com/review/show/6338722177?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1678290705l/123206298.jpg
   year_read: 2024
 - title: 'The Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy
     Self'
+  author: Michael Easter
   link: https://www.goodreads.com/review/show/6280781799?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601481119l/55120630.jpg
   year_read: 2024
 - title: '1776'
+  author: David McCullough
   link: https://www.goodreads.com/review/show/3327571523?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1306787560l/1067.jpg
   year_read: 2024
 - title: Meditations
+  author: Marcus Aurelius
   link: https://www.goodreads.com/review/show/3327562828?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1614366774l/36680837.jpg
   year_read: 2024
 - title: The Count of Monte Cristo
+  author: Alexandre Dumas
   link: https://www.goodreads.com/review/show/3327697177?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1724863997l/7126.jpg
   year_read: 2024
 - title: 'Outlive: The Science & Art of Longevity'
+  author: Peter Attia
   link: https://www.goodreads.com/review/show/6215974356?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1700067079l/61153739.jpg
   year_read: 2024
-- title: 'Red Sky Mourning (Terminal List #7)'
-  link: https://www.goodreads.com/review/show/7062427024?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1699720331l/199897972.jpg
-  year_read: 2024
-- title: 'Only the Dead (Terminal List #6)'
-  link: https://www.goodreads.com/review/show/7052887590?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1678845544l/62598578.jpg
-  year_read: 2024
-- title: 'In the Blood (Terminal List, #5)'
-  link: https://www.goodreads.com/review/show/7046196983?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1648219126l/58438630.jpg
-  year_read: 2024
-- title: 'The Devil''s Hand (Terminal List, #4)'
-  link: https://www.goodreads.com/review/show/7005229965?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1599257252l/54265145.jpg
-  year_read: 2024
-- title: 'Savage Son (Terminal List #3)'
-  link: https://www.goodreads.com/review/show/7017649868?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1568697351l/49700206.jpg
-  year_read: 2024
-- title: 'True Believer (Terminal List, #2)'
-  link: https://www.goodreads.com/review/show/7005229734?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1540632369l/40538564.jpg
-  year_read: 2024
-- title: 'The Terminal List (Terminal List, #1)'
-  link: https://www.goodreads.com/review/show/7005228745?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520163970l/35297106.jpg
-  year_read: 2024
-- title: 'Dopamine Nation: Finding Balance in the Age of Indulgence'
-  link: https://www.goodreads.com/review/show/6981584504?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629679336l/55723020.jpg
-  year_read: 2024
-- title: 'Supercommunicators: How to Unlock the Secret Language of Connection'
-  link: https://www.goodreads.com/review/show/6939127819?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1702893819l/157981748.jpg
-  year_read: 2024
-- title: 'Private Equity: A Memoir'
-  link: https://www.goodreads.com/review/show/6924841015?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1699477415l/195267508.jpg
-  year_read: 2024
-- title: 'The Contrarian: Peter Thiel and the Rise of the Silicon Valley Oligarchs'
-  link: https://www.goodreads.com/review/show/6526133897?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1619577011l/57880116.jpg
-  year_read: 2024
-- title: 'The Three-Body Problem (Remembrance of Earth’s Past, #1)'
-  link: https://www.goodreads.com/review/show/6151645999?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1415428227l/20518872.jpg
-  year_read: 2024
-- title: 'China Rich Girlfriend (Crazy Rich Asians, #2)'
-  link: https://www.goodreads.com/review/show/6595470127?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1419179404l/22674105.jpg
-  year_read: 2024
-- title: 'Crazy Rich Asians (Crazy Rich Asians, #1)'
-  link: https://www.goodreads.com/review/show/6595469644?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1364852559l/16085481.jpg
-  year_read: 2024
-- title: 'Rich People Problems (Crazy Rich Asians, #3)'
-  link: https://www.goodreads.com/review/show/6599725418?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1493727003l/29864343.jpg
-  year_read: 2024
-- title: 'Consider Phlebas (Culture, #1)'
-  link: https://www.goodreads.com/review/show/6644084902?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327951890l/8935689.jpg
-  year_read: 2024
-- title: 'Patriot Games (Jack Ryan, #1)'
-  link: https://www.goodreads.com/review/show/6142030324?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328007145l/32682.jpg
-  year_read: 2024
-- title: 'Red Rabbit (Jack Ryan, #2)'
-  link: https://www.goodreads.com/review/show/6142032343?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546283429l/19707.jpg
-  year_read: 2024
-- title: 'Slow Productivity: The Lost Art of Accomplishment Without Burnout'
-  link: https://www.goodreads.com/review/show/6796409859?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692883158l/197773418.jpg
-  year_read: 2024
-- title: 'Practicing the Way: Be with Jesus, Become Like Him, Do As He Did'
-  link: https://www.goodreads.com/review/show/6874640518?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697658775l/83817455.jpg
-  year_read: 2024
+- title: 'Long Range Shooting Handbook: Complete Beginner''s Guide to Long Range Shooting'
+  author: Ryan M. Cleckner
+  link: https://www.goodreads.com/review/show/6103460490?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1454451001l/28895874.jpg
+  year_read: 2023
+- title: The Alchemist
+  author: Paulo Coelho
+  link: https://www.goodreads.com/review/show/3327563507?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1654371463l/18144590.jpg
+  year_read: 2023
+- title: 'American Buffalo: In Search of a Lost Icon'
+  author: Steven Rinella
+  link: https://www.goodreads.com/review/show/6052751187?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320435587l/2595763.jpg
+  year_read: 2023
+- title: 'The Mountain Is You: Transforming Self-Sabotage Into Self-Mastery'
+  author: Brianna Wiest
+  link: https://www.goodreads.com/review/show/6001358099?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1590806892l/53642699.jpg
+  year_read: 2023
+- title: 'The Deeply Formed Life: Five Transformative Values to Root Us in the Way
+    of Jesus'
+  author: Rich Villodas
+  link: https://www.goodreads.com/review/show/5941450412?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1594921878l/49757147.jpg
+  year_read: 2023
+- title: 'Habits of the Household: Practicing the Story of God in Everyday Family
+    Rhythms'
+  author: Justin Whitmel Earley
+  link: https://www.goodreads.com/review/show/5915233949?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1619543761l/57468025.jpg
+  year_read: 2023
+- title: 'Build: An Unorthodox Guide to Making Things Worth Making'
+  author: Tony Fadell
+  link: https://www.goodreads.com/review/show/5880455624?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1652120231l/59696349.jpg
+  year_read: 2023
+- title: Elon Musk
+  author: Walter Isaacson
+  link: https://www.goodreads.com/review/show/5870040739?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692288251l/122765395.jpg
+  year_read: 2023
+- title: 'Stolen Focus: Why You Can''t Pay Attention— and How to Think Deeply Again'
+  author: Johann Hari
+  link: https://www.goodreads.com/review/show/5849473723?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1626718328l/57933306.jpg
+  year_read: 2023
+- title: 'Four Thousand Weeks: Time Management for Mortals'
+  author: Oliver Burkeman
+  link: https://www.goodreads.com/review/show/5822262563?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1627425434l/54785515.jpg
+  year_read: 2023
+- title: The Right Stuff
+  author: Tom Wolfe
+  link: https://www.goodreads.com/review/show/4219526124?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328307624l/8146619.jpg
+  year_read: 2023
+- title: 'DIY MEMS: Fabricating Microelectromechanical Systems in Open Use Labs'
+  author: Deborah Munro
+  link: https://www.goodreads.com/review/show/5799874463?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1678898445l/100806537.jpg
+  year_read: 2023
+- title: 'Good to Great: Why Some Companies Make the Leap... and Others Don''t'
+  author: Jim Collins
+  link: https://www.goodreads.com/review/show/4510685694?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546097703l/76865.jpg
+  year_read: 2023
+- title: The Unicorn Project
+  author: Gene Kim
+  link: https://www.goodreads.com/review/show/5476381062?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566877586l/44333183.jpg
+  year_read: 2023
+- title: 'American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer'
+  author: Kai Bird
+  link: https://www.goodreads.com/review/show/3700377015?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686079247l/80571.jpg
+  year_read: 2023
+- title: 'Garden City: Work, Rest, and the Art of Being Human'
+  author: John Mark Comer
+  link: https://www.goodreads.com/review/show/5748640102?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442843359l/23403781.jpg
+  year_read: 2023
+- title: 'Great Leaders Make Sure Monday Morning Doesn''t Suck: How To Get, Keep &
+    Grow Talent'
+  author: Eric Harkins
+  link: https://www.goodreads.com/review/show/5715451605?utm_medium=api&utm_source=rss
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646589131l/60561016.jpg
+  year_read: 2023
 - title: Engineering Management for the Rest of Us
+  author: Sarah Drasner
   link: https://www.goodreads.com/review/show/5623128020?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667289282l/58502800.jpg
   year_read: 2023
 - title: 'The Devil''s Cup: A History of the World According to Coffee'
+  author: Stewart Lee Allen
   link: https://www.goodreads.com/review/show/5612874596?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320458105l/303841.jpg
   year_read: 2023
 - title: How to Build Meaningful Relationships through Conversations
+  author: Carol Ann Lloyd
   link: https://www.goodreads.com/review/show/5612123468?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585914419l/52905746.jpg
   year_read: 2023
 - title: 'Discipline Is Destiny: The Power of Self-Control'
+  author: Ryan Holiday
   link: https://www.goodreads.com/review/show/5610518058?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1656930457l/60018575.jpg
   year_read: 2023
 - title: 'Chip War: The Fight for the World''s Most Critical Technology'
+  author: Chris   Miller
   link: https://www.goodreads.com/review/show/5609793089?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1662566820l/60321447.jpg
   year_read: 2023
 - title: 'The Road Less Stupid: Advice from the Chairman of the Board'
+  author: Keith J. Cunningham
   link: https://www.goodreads.com/review/show/5582722883?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1511537878l/36653486.jpg
   year_read: 2023
 - title: 'Who Not How: The Formula to Achieve Bigger Goals Through Accelerating Teamwork'
+  author: Dan  Sullivan
   link: https://www.goodreads.com/review/show/5582089912?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1592138549l/54018473.jpg
   year_read: 2023
 - title: Artemis
+  author: Andy Weir
   link: https://www.goodreads.com/review/show/3327566382?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1776234222l/34928122.jpg
   year_read: 2023
 - title: 'The Obstacle Is the Way: The Timeless Art of Turning Trials into Triumph'
+  author: Ryan Holiday
   link: https://www.goodreads.com/review/show/4835674127?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1447351611l/20554127.jpg
   year_read: 2023
@@ -376,77 +547,6 @@ books:
     of Prayer'
   link: https://www.goodreads.com/review/show/5491827192?utm_medium=api&utm_source=rss
   cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661865113l/60693285.jpg
-  year_read: 2023
-- title: 'Long Range Shooting Handbook: Complete Beginner''s Guide to Long Range Shooting'
-  link: https://www.goodreads.com/review/show/6103460490?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1454451001l/28895874.jpg
-  year_read: 2023
-- title: The Alchemist
-  link: https://www.goodreads.com/review/show/3327563507?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1654371463l/18144590.jpg
-  year_read: 2023
-- title: 'American Buffalo: In Search of a Lost Icon'
-  link: https://www.goodreads.com/review/show/6052751187?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320435587l/2595763.jpg
-  year_read: 2023
-- title: 'The Mountain Is You: Transforming Self-Sabotage Into Self-Mastery'
-  link: https://www.goodreads.com/review/show/6001358099?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1590806892l/53642699.jpg
-  year_read: 2023
-- title: 'The Deeply Formed Life: Five Transformative Values to Root Us in the Way
-    of Jesus'
-  link: https://www.goodreads.com/review/show/5941450412?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1594921878l/49757147.jpg
-  year_read: 2023
-- title: 'Habits of the Household: Practicing the Story of God in Everyday Family
-    Rhythms'
-  link: https://www.goodreads.com/review/show/5915233949?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1619543761l/57468025.jpg
-  year_read: 2023
-- title: 'Build: An Unorthodox Guide to Making Things Worth Making'
-  link: https://www.goodreads.com/review/show/5880455624?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1652120231l/59696349.jpg
-  year_read: 2023
-- title: Elon Musk
-  link: https://www.goodreads.com/review/show/5870040739?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692288251l/122765395.jpg
-  year_read: 2023
-- title: 'Stolen Focus: Why You Can''t Pay Attention— and How to Think Deeply Again'
-  link: https://www.goodreads.com/review/show/5849473723?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1626718328l/57933306.jpg
-  year_read: 2023
-- title: 'Four Thousand Weeks: Time Management for Mortals'
-  link: https://www.goodreads.com/review/show/5822262563?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1627425434l/54785515.jpg
-  year_read: 2023
-- title: The Right Stuff
-  link: https://www.goodreads.com/review/show/4219526124?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328307624l/8146619.jpg
-  year_read: 2023
-- title: 'DIY MEMS: Fabricating Microelectromechanical Systems in Open Use Labs'
-  link: https://www.goodreads.com/review/show/5799874463?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1678898445l/100806537.jpg
-  year_read: 2023
-- title: 'Good to Great: Why Some Companies Make the Leap... and Others Don''t'
-  link: https://www.goodreads.com/review/show/4510685694?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546097703l/76865.jpg
-  year_read: 2023
-- title: The Unicorn Project
-  link: https://www.goodreads.com/review/show/5476381062?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566877586l/44333183.jpg
-  year_read: 2023
-- title: 'American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer'
-  link: https://www.goodreads.com/review/show/3700377015?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686079247l/80571.jpg
-  year_read: 2023
-- title: 'Garden City: Work, Rest, and the Art of Being Human'
-  link: https://www.goodreads.com/review/show/5748640102?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442843359l/23403781.jpg
-  year_read: 2023
-- title: 'Great Leaders Make Sure Monday Morning Doesn''t Suck: How To Get, Keep &
-    Grow Talent'
-  link: https://www.goodreads.com/review/show/5715451605?utm_medium=api&utm_source=rss
-  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646589131l/60561016.jpg
   year_read: 2023
 - title: 'Damn Right!: Behind the Scenes with Berkshire Hathaway Billionaire Charlie
     Munger'
