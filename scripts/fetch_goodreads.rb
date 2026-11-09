@@ -1,148 +1,154 @@
 #!/usr/bin/env ruby
-# Fetches your Goodreads "read" shelf via RSS and writes _data/recently_read.yml
-# for Jekyll. Run before `jekyll build` to refresh the list.
+# Refreshes _data/recently_read.yml from Goodreads' public shelf widget.
+#
+# Goodreads retired the shelf RSS feeds (/review/list_rss/<id>) in late
+# October 2026; they now return 404, and the HTML shelf pages need a login.
+# The embeddable shelf widget (/review/custom_widget/<id>) is still public.
+# It returns at most 100 books (most recently read first) and carries no read
+# dates, so this script merges it into the existing data file instead of
+# replacing it:
+#
+# - a book already in the file keeps its year_read (and gains an author or
+#   cover if the file lacked one);
+# - a book the file has never seen gets the current year as year_read;
+# - books older than the widget's 100 stay as they are in the file.
+#
+# If a year comes out wrong (e.g. a book marked read on Jan 1 that you
+# finished on Dec 31), edit year_read in _data/recently_read.yml by hand; the
+# next run keeps your edit.
 #
 # Usage: ruby scripts/fetch_goodreads.rb
 # Optional: GOODREADS_USER_ID=123456 ruby scripts/fetch_goodreads.rb
-# Optional: GOODREADS_API_KEY=key (if RSS requires it)
 
 require "net/http"
-require "rexml/document"
+require "uri"
 require "yaml"
 require "cgi"
-require "fileutils"
 require "date"
+require "fileutils"
 
-GOODREADS_USER_ID = (ENV["GOODREADS_USER_ID"] || "").strip.empty? ? "114910493" : ENV["GOODREADS_USER_ID"]
-GOODREADS_API_KEY = (ENV["GOODREADS_API_KEY"] || "").strip.empty? ? nil : ENV["GOODREADS_API_KEY"]
-PER_PAGE = 100
-SHELF = "read"
-SORT = "date_read"
+GOODREADS_USER_ID = (ENV["GOODREADS_USER_ID"] || "").strip.empty? ? "114910493" : ENV["GOODREADS_USER_ID"].strip
+WIDGET_MAX = 100
+OUT_PATH = File.expand_path("../_data/recently_read.yml", __dir__)
 
-def build_rss_uri(page)
-  params = { "shelf" => SHELF, "sort" => SORT, "per_page" => PER_PAGE, "page" => page }
-  params["key"] = GOODREADS_API_KEY if GOODREADS_API_KEY && !GOODREADS_API_KEY.empty?
+def widget_uri
+  params = {
+    "shelf" => "read",
+    "sort" => "date_read",
+    "order" => "d",
+    "num_books" => WIDGET_MAX,
+    "show_title" => 1,
+    "show_author" => 1,
+    "show_cover" => 1,
+    "widget_id" => "blog"
+  }
   query = params.map { |k, v| "#{k}=#{CGI.escape(v.to_s)}" }.join("&")
-  URI("https://www.goodreads.com/review/list_rss/#{GOODREADS_USER_ID}?#{query}")
+  URI("https://www.goodreads.com/review/custom_widget/#{GOODREADS_USER_ID}?#{query}")
 end
 
-def fetch_rss(uri)
-  Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") do |http|
-    req = Net::HTTP::Get.new(uri)
-    req["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
-    response = http.request(req)
-    raise "HTTP #{response.code}: #{response.body[0..200]}" unless response.is_a?(Net::HTTPSuccess)
-    response.body
+def fetch(uri, attempts: 3)
+  attempts.times do |i|
+    begin
+      res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true, open_timeout: 20, read_timeout: 30) do |http|
+        req = Net::HTTP::Get.new(uri)
+        req["User-Agent"] = "Mozilla/5.0 (compatible; jacobbergam-blog-reading-list)"
+        http.request(req)
+      end
+      return res.body if res.is_a?(Net::HTTPSuccess)
+
+      warn "Goodreads widget: HTTP #{res.code} (attempt #{i + 1}/#{attempts})"
+    rescue StandardError => e
+      warn "Goodreads widget: #{e.class}: #{e.message} (attempt #{i + 1}/#{attempts})"
+    end
+    sleep(10 * (i + 1)) if i < attempts - 1
   end
-rescue StandardError => e
-  warn "Failed to fetch Goodreads RSS: #{e.message}"
-  exit 1
+  abort "Failed to fetch the Goodreads shelf widget."
 end
 
-def text_at(node, xpath)
-  n = node.elements[xpath]
-  n&.text&.strip
+# The widget is JavaScript: `var widget_code = '<html…>'`. Pull the string out
+# and undo the JS escaping so it reads as plain HTML.
+def widget_html(js)
+  m = js.match(/var widget_code = '(.*?)';?\s*\n\s*var widget_div/m)
+  abort "Goodreads widget: unexpected response (no widget_code)." unless m
+
+  m[1].gsub("\\n", "\n").gsub(/\\(["'\/\\])/, '\1')
 end
 
-def year_from_rss_date(date_str)
-  return nil if date_str.to_s.empty?
-
-  DateTime.parse(date_str).year
-rescue StandardError
-  nil
+def review_id(link)
+  link.to_s[%r{/review/show/(\d+)}, 1]
 end
 
-def parse_item(item_el)
-  title = text_at(item_el, "title")
-  link  = text_at(item_el, "link")
-  return nil if title.to_s.empty?
+# Goodreads covers carry a size suffix (._SX50_, ._SY75_); drop it for full res.
+def full_res(cover)
+  return nil if cover.to_s.empty? || cover.include?("nophoto")
 
-  year_read = year_from_rss_date(text_at(item_el, "user_read_at"))
+  cover.gsub(/\._S[XY]\d+_/, "").gsub(/S[XY]\d+_\.(jpg|jpeg|png)/i, '.\1')
+end
 
-  # Goodreads sometimes omits user_read_at (common for audiobook editions).
-  # On the read shelf, date added is usually when the book was marked read.
-  year_read ||= year_from_rss_date(text_at(item_el, "user_date_added"))
+def parse_widget(html)
+  html.split(/<div class="gr_custom_each_container_[^"]*">/)[1..-1].to_a.map do |chunk|
+    title_m = chunk.match(/<div class="gr_custom_title_[^"]*">\s*<a[^>]*href="([^"]+)"[^>]*>(.*?)<\/a>/m)
+    next nil unless title_m
 
-  # Goodreads RSS often has custom elements for book cover and author
-  cover = text_at(item_el, "book_medium_image_url") ||
-          text_at(item_el, "book_small_image_url") ||
-          text_at(item_el, "book_image_url")
-  author_el = item_el.elements["author"]
-  author = author_el ? text_at(author_el, "name") : nil
+    link = CGI.unescapeHTML(title_m[1]).sub(/\?.*\z/, "")
+    author_m = chunk.match(/<div class="gr_custom_author_[^"]*">.*?<a[^>]*>(.*?)<\/a>/m)
+    cover_m = chunk.match(/<img[^>]*src="([^"]+)"/)
+    {
+      "title" => CGI.unescapeHTML(title_m[2].strip),
+      "author" => author_m ? CGI.unescapeHTML(author_m[1].strip) : nil,
+      "link" => link,
+      "cover_url" => full_res(cover_m && cover_m[1])
+    }.reject { |_, v| v.nil? || v.to_s.empty? }
+  end.compact
+end
 
-  # Fallback: parse description for cover img and "by Author"
-  if (author.to_s.empty? || cover.to_s.empty?) && item_el.elements["description"]
-    desc = item_el.elements["description"].text.to_s
-    cover = $1 if cover.to_s.empty? && desc =~ /<img[^>]+src="([^"]+)"/i
-    author = $1.strip if author.to_s.empty? && desc =~ /by\s+([^<\n]+)/i
+def load_existing
+  return [] unless File.exist?(OUT_PATH)
+
+  data = YAML.safe_load(File.read(OUT_PATH)) || {}
+  data["books"] || []
+end
+
+def merge(widget_books, existing, this_year)
+  by_id = {}
+  existing.each { |b| by_id[review_id(b["link"])] ||= b }
+
+  seen = {}
+  merged = widget_books.map do |w|
+    id = review_id(w["link"])
+    seen[id] = true
+    old = by_id[id]
+    if old
+      # Keep the stored entry (its link and year); fill in what it lacked.
+      old.merge(w.reject { |k, _| k == "link" }) { |_, old_v, new_v| old_v.to_s.empty? ? new_v : old_v }
+    else
+      w.merge("year_read" => this_year)
+    end
   end
 
-  # Strip Goodreads size suffix so we get full-res images (less blurry).
-  # Handles both: path/123._SY160_.jpg and path/123SY160_.jpg (e.g. Savage Son)
-  if cover && !cover.empty?
-    cover = cover.gsub(/\._S[XY]\d+_/, "")
-    cover = cover.gsub(/S[XY]\d+_\.(jpg|jpeg|png)/i, '.\1')
-  end
+  older = existing.reject { |b| seen[review_id(b["link"])] }
+  merged.concat(older)
 
-  {
-    "title" => title,
-    "author" => author.to_s.empty? ? nil : author,
-    "link" => link,
-    "cover_url" => cover.to_s.empty? ? nil : cover,
-    "year_read" => year_read
-  }.compact
+  # Newest year first; within a year keep widget order (most recently read
+  # first), then the file's order. sort_by is not stable, so use the index.
+  sorted = merged.each_with_index.sort_by { |b, i| [-(b["year_read"] || 0), i] }.map(&:first)
+  sorted.map { |b| KEY_ORDER.each_with_object({}) { |k, h| h[k] = b[k] unless b[k].nil? }.merge(b) }
 end
 
-def parse_rss(xml_str)
-  stripped = xml_str.lstrip
-  if stripped.start_with?("<!DOCTYPE", "<html", "<HTML")
-    warn "Goodreads returned HTML instead of RSS (feed may be blocked or unavailable)."
-    exit 1
-  end
-
-  # Goodreads RSS includes a self-closing <xhtml:meta> tag inside <channel>
-  # that REXML rejects as "Missing end tag for 'meta' (got 'head')".
-  # Strip it before parsing — it's just a robots noindex directive, not data.
-  cleaned = stripped.gsub(/<xhtml:meta.*?\/>/m, "")
-
-  doc = REXML::Document.new(cleaned)
-  items = []
-  REXML::XPath.each(doc, "//item") do |item_el|
-    entry = parse_item(item_el)
-    items << entry if entry
-  end
-  items
-end
+KEY_ORDER = %w[title author link cover_url year_read].freeze
 
 def main
-  all_books = []
-  page = 1
+  html = widget_html(fetch(widget_uri))
+  widget_books = parse_widget(html)
+  abort "Goodreads widget returned no books; leaving #{OUT_PATH} untouched." if widget_books.empty?
 
-  loop do
-    puts "Fetching page #{page}..."
-    uri = build_rss_uri(page)
-    xml = fetch_rss(uri)
-    books = parse_rss(xml)
-    
-    break if books.empty?
-    
-    all_books.concat(books)
-    break if books.size < PER_PAGE
-    
-    page += 1
-  end
+  existing = load_existing
+  books = merge(widget_books, existing, Date.today.year)
+  added = books.size - existing.size
 
-  # The Goodreads RSS feed sometimes returns items slightly out of strict date order
-  # across different pages, so we need to sort them explicitly descending by year.
-  # If a book doesn't have a year, treat it as very old (0) so it drops to the bottom.
-  all_books.sort_by! { |b| -(b["year_read"] || 0) }
-
-  data_dir = File.join(__dir__, "..", "_data")
-  FileUtils.mkdir_p(data_dir)
-  out_path = File.join(data_dir, "recently_read.yml")
-
-  File.write(out_path, { "books" => all_books }.to_yaml)
-  puts "Wrote #{all_books.size} books to #{out_path}"
+  FileUtils.mkdir_p(File.dirname(OUT_PATH))
+  File.write(OUT_PATH, { "books" => books }.to_yaml)
+  puts "Widget returned #{widget_books.size} books; #{added} new. Wrote #{books.size} books to #{OUT_PATH}"
 end
 
-main
+main if $PROGRAM_NAME == __FILE__
