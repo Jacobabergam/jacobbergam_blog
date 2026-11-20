@@ -1,5 +1,15 @@
 ---
 books:
+- title: The Way of Kings
+  author: Brandon Sanderson
+  link: https://www.goodreads.com/review/show/3647249326
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1659905828l/7235533.jpg
+  year_read: 2026
+- title: Words of Radiance
+  author: Brandon Sanderson
+  link: https://www.goodreads.com/review/show/9117588053
+  cover_url: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1728768241l/17332218.jpg
+  year_read: 2026
 - title: Greenlights
   author: Matthew McConaughey
   link: https://www.goodreads.com/review/show/8976153659?utm_medium=api&utm_source=rss
